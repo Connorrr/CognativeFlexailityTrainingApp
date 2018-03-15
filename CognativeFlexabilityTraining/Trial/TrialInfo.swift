@@ -7,7 +7,6 @@
 //
 
 struct TrialInfo {
-    var question : String!
-    var condition : TrialCondition!
-    var correctResponse : TrialCondition!
+    var question : String?
+    var condition : TrialCondition?
 }

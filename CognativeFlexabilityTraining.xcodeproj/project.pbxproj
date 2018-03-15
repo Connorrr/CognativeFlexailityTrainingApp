@@ -17,6 +17,7 @@
 		BF884E15205A21CF002262DB /* TrialCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884E14205A21CF002262DB /* TrialCondition.swift */; };
 		BF884E18205A24B0002262DB /* InstructionsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884E17205A24B0002262DB /* InstructionsTextView.swift */; };
 		BF884E1A205A2F4F002262DB /* BlockCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884E19205A2F4F002262DB /* BlockCondition.swift */; };
+		BF884E1C205A30AE002262DB /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884E1B205A30AE002262DB /* Block.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		BF884E14205A21CF002262DB /* TrialCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialCondition.swift; sourceTree = "<group>"; };
 		BF884E17205A24B0002262DB /* InstructionsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTextView.swift; sourceTree = "<group>"; };
 		BF884E19205A2F4F002262DB /* BlockCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCondition.swift; sourceTree = "<group>"; };
+		BF884E1B205A30AE002262DB /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				BF884E10205A211C002262DB /* BlockViewController.swift */,
 				BF884E19205A2F4F002262DB /* BlockCondition.swift */,
+				BF884E1B205A30AE002262DB /* Block.swift */,
 			);
 			path = Block;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF884DFF205A2044002262DB /* ViewController.swift in Sources */,
+				BF884E1C205A30AE002262DB /* Block.swift in Sources */,
 				BF884E1A205A2F4F002262DB /* BlockCondition.swift in Sources */,
 				BF884E15205A21CF002262DB /* TrialCondition.swift in Sources */,
 				BF884E11205A211C002262DB /* BlockViewController.swift in Sources */,
