@@ -12,9 +12,10 @@
 		BF884E02205A2044002262DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF884E00205A2044002262DB /* Main.storyboard */; };
 		BF884E04205A2044002262DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF884E03205A2044002262DB /* Assets.xcassets */; };
 		BF884E07205A2044002262DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF884E05205A2044002262DB /* LaunchScreen.storyboard */; };
-		BF884E11205A211C002262DB /* TrialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884E10205A211C002262DB /* TrialViewController.swift */; };
+		BF884E11205A211C002262DB /* BlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884E10205A211C002262DB /* BlockViewController.swift */; };
 		BF884E13205A2147002262DB /* TrialInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884E12205A2147002262DB /* TrialInfo.swift */; };
 		BF884E15205A21CF002262DB /* TrialCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884E14205A21CF002262DB /* TrialCondition.swift */; };
+		BF884E18205A24B0002262DB /* InstructionsTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884E17205A24B0002262DB /* InstructionsTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +26,10 @@
 		BF884E03205A2044002262DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF884E06205A2044002262DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF884E08205A2044002262DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BF884E10205A211C002262DB /* TrialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialViewController.swift; sourceTree = "<group>"; };
+		BF884E10205A211C002262DB /* BlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewController.swift; sourceTree = "<group>"; };
 		BF884E12205A2147002262DB /* TrialInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialInfo.swift; sourceTree = "<group>"; };
 		BF884E14205A21CF002262DB /* TrialCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialCondition.swift; sourceTree = "<group>"; };
+		BF884E17205A24B0002262DB /* InstructionsTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		BF884DFB205A2044002262DB /* CognativeFlexabilityTraining */ = {
 			isa = PBXGroup;
 			children = (
+				BF884E16205A2492002262DB /* Instructions */,
 				BF884E0F205A20A5002262DB /* Trial */,
 				BF884E0E205A2087002262DB /* Block */,
 				BF884DFC205A2044002262DB /* AppDelegate.swift */,
@@ -75,6 +78,7 @@
 		BF884E0E205A2087002262DB /* Block */ = {
 			isa = PBXGroup;
 			children = (
+				BF884E10205A211C002262DB /* BlockViewController.swift */,
 			);
 			path = Block;
 			sourceTree = "<group>";
@@ -82,11 +86,18 @@
 		BF884E0F205A20A5002262DB /* Trial */ = {
 			isa = PBXGroup;
 			children = (
-				BF884E10205A211C002262DB /* TrialViewController.swift */,
 				BF884E12205A2147002262DB /* TrialInfo.swift */,
 				BF884E14205A21CF002262DB /* TrialCondition.swift */,
 			);
 			path = Trial;
+			sourceTree = "<group>";
+		};
+		BF884E16205A2492002262DB /* Instructions */ = {
+			isa = PBXGroup;
+			children = (
+				BF884E17205A24B0002262DB /* InstructionsTextView.swift */,
+			);
+			path = Instructions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,8 +174,9 @@
 			files = (
 				BF884DFF205A2044002262DB /* ViewController.swift in Sources */,
 				BF884E15205A21CF002262DB /* TrialCondition.swift in Sources */,
-				BF884E11205A211C002262DB /* TrialViewController.swift in Sources */,
+				BF884E11205A211C002262DB /* BlockViewController.swift in Sources */,
 				BF884E13205A2147002262DB /* TrialInfo.swift in Sources */,
+				BF884E18205A24B0002262DB /* InstructionsTextView.swift in Sources */,
 				BF884DFD205A2044002262DB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
