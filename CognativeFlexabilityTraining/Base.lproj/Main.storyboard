@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -51,15 +52,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ot3-dr-gSu" userLabel="StimImage">
-                                <rect key="frame" x="234" y="372" width="300" height="300"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ot3-dr-gSu" userLabel="StimImage">
+                                <rect key="frame" x="234" y="322" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="MgE-Iv-3c5"/>
                                     <constraint firstAttribute="height" constant="300" id="cx8-pf-szG"/>
                                 </constraints>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUf-oY-C62" userLabel="FixationCross">
-                                <rect key="frame" x="309" y="447" width="150" height="134"/>
+                                <rect key="frame" x="309" y="397" width="150" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="134" id="KLL-V9-DoM"/>
                                     <constraint firstAttribute="width" constant="150" id="vx3-jW-AdA"/>
@@ -68,7 +69,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the question for this trial?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxx-Ow-HGg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the question for this trial?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxx-Ow-HGg" userLabel="QuestionLabel">
                                 <rect key="frame" x="50" y="60" width="668" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="c0B-da-qzZ"/>
@@ -77,23 +78,95 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m4I-l8-ad5" userLabel="ButtonStackView">
+                                <rect key="frame" x="50" y="722" width="668" height="152"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISt-hX-lUc" userLabel="GreaterThanButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="nLu-J2-PVv"/>
+                                            <constraint firstAttribute="width" secondItem="ISt-hX-lUc" secondAttribute="height" multiplier="1:1" id="xur-KX-hqE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Greater Than" backgroundImage="GreaterThanButton.png"/>
+                                        <connections>
+                                            <action selector="greaterThanButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="UDh-ih-DNt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RR1-JN-C05" userLabel="LessThanButton">
+                                        <rect key="frame" x="172" y="0.0" width="152" height="152"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="RR1-JN-C05" secondAttribute="height" multiplier="1:1" id="Ni3-ZF-1Kl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Less Than" backgroundImage="LessThanButton.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="lessThanButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="cce-xF-oTx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQ0-d3-tlA" userLabel="EvenButton">
+                                        <rect key="frame" x="344" y="0.0" width="152" height="152"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="lQ0-d3-tlA" secondAttribute="height" multiplier="1:1" id="wMf-wu-9Z6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Even" backgroundImage="EvenButton.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="evenButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="Kwp-gX-7db"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTH-RD-j9R" userLabel="OddButton">
+                                        <rect key="frame" x="516" y="0.0" width="152" height="152"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="DTH-RD-j9R" secondAttribute="height" multiplier="1:1" id="XEm-JS-nH2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="Odd" backgroundImage="OddButton.png">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="oddButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="t1j-df-f2a"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="m4I-l8-ad5" firstAttribute="leading" secondItem="Jc3-94-6bU" secondAttribute="leading" constant="50" id="106-Ha-SC3"/>
                             <constraint firstItem="QUf-oY-C62" firstAttribute="centerY" secondItem="Jc3-94-6bU" secondAttribute="centerY" constant="-8" id="24V-Zc-O2j"/>
+                            <constraint firstItem="Jc3-94-6bU" firstAttribute="trailing" secondItem="m4I-l8-ad5" secondAttribute="trailing" constant="50" id="3r1-1T-HYr"/>
                             <constraint firstItem="QUf-oY-C62" firstAttribute="centerX" secondItem="Jc3-94-6bU" secondAttribute="centerX" id="4xz-At-3o6"/>
                             <constraint firstItem="ot3-dr-gSu" firstAttribute="centerY" secondItem="Jc3-94-6bU" secondAttribute="centerY" id="7oV-aW-u0P"/>
                             <constraint firstItem="oxx-Ow-HGg" firstAttribute="leading" secondItem="Jc3-94-6bU" secondAttribute="leading" constant="50" id="9Zm-kh-3Dt"/>
                             <constraint firstItem="Jc3-94-6bU" firstAttribute="trailing" secondItem="oxx-Ow-HGg" secondAttribute="trailing" constant="50" id="IEu-7Z-HqA"/>
+                            <constraint firstItem="m4I-l8-ad5" firstAttribute="top" secondItem="ot3-dr-gSu" secondAttribute="bottom" constant="100" id="dAb-30-M9X"/>
                             <constraint firstItem="ot3-dr-gSu" firstAttribute="centerX" secondItem="Jc3-94-6bU" secondAttribute="centerX" id="fCE-FU-zzp"/>
+                            <constraint firstItem="Jc3-94-6bU" firstAttribute="bottom" secondItem="m4I-l8-ad5" secondAttribute="bottom" constant="50" id="mZ3-6Q-j8d"/>
                             <constraint firstItem="oxx-Ow-HGg" firstAttribute="top" secondItem="Jc3-94-6bU" secondAttribute="top" constant="40" id="r0P-Ss-xyn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jc3-94-6bU"/>
                     </view>
+                    <connections>
+                        <outlet property="fixationCross" destination="QUf-oY-C62" id="st5-ji-RzL"/>
+                        <outlet property="questionLabel" destination="oxx-Ow-HGg" id="qNX-ss-XsI"/>
+                        <outlet property="stimImage" destination="QUf-oY-C62" id="ubo-LS-eMW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2e-xJ-0s5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1040.625" y="133.59375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="1.png" width="300" height="300"/>
+        <image name="EvenButton.png" width="417" height="417"/>
+        <image name="GreaterThanButton.png" width="417" height="417"/>
+        <image name="LessThanButton.png" width="417" height="417"/>
+        <image name="OddButton.png" width="417" height="417"/>
+    </resources>
 </document>

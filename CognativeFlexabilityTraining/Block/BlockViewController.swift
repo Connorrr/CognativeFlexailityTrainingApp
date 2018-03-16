@@ -9,7 +9,12 @@
 import UIKit
 
 class BlockViewController: UIViewController {
-
+    
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var stimImage: UILabel!
+    @IBOutlet weak var fixationCross: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +26,18 @@ class BlockViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func greaterThanButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func lessThanButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func evenButtonPressed(_ sender: UIButton) {
+    }
+    
+    @IBAction func oddButtonPressed(_ sender: UIButton) {
+    }
+    
     /*
     // MARK: - Navigation
 
