@@ -8,9 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
-    
+class ViewController: UIViewController, UITextFieldDelegate {
     
     let experimentStructure : [BlockType] = [.practice,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
 
@@ -18,7 +16,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +24,8 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
 }
 
