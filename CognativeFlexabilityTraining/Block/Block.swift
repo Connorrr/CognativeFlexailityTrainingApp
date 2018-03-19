@@ -63,15 +63,19 @@ class Block {
                 trial.question = "Is this number Even or Odd?"
                 if isevenOdd.randomBool() {
                     trial.condition = .even
+                    trial.stim = trial.stim?.getEvenStimulus()
                 }else{
                     trial.condition = .odd
+                    trial.stim = trial.stim?.getOddStimulus()
                 }
             }else{
                 trial.question = "Is this number Aove or Below 5?"
                 if isevenOdd.randomBool() {
                     trial.condition = .above
+                    trial.stim = trial.stim?.getAboveStimulus()
                 }else{
                     trial.condition = .below
+                    trial.stim = trial.stim?.getBelowStimulus()
                 }
             }
                 

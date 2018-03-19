@@ -46,6 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="243" y="39"/>
         </scene>
         <!--Block View Controller-->
         <scene sceneID="pEg-yr-4cp">
@@ -149,7 +150,7 @@
                     <connections>
                         <outlet property="fixationCross" destination="QUf-oY-C62" id="st5-ji-RzL"/>
                         <outlet property="questionLabel" destination="oxx-Ow-HGg" id="qNX-ss-XsI"/>
-                        <outlet property="stimImage" destination="QUf-oY-C62" id="ubo-LS-eMW"/>
+                        <outlet property="stimImage" destination="ot3-dr-gSu" id="X2T-I5-X7W"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="returnToInstructions" id="Bbe-oS-AWF"/>
                     </connections>
                 </viewController>

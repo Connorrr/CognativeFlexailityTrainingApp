@@ -12,7 +12,7 @@ import UIKit
 extension UIImage {
     
     func getEvenStimulus() -> UIImage? {
-        let int : Int = 0
+        let int : UInt32 = 0
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
@@ -33,7 +33,7 @@ extension UIImage {
     }
     
     func getOddStimulus() -> UIImage? {
-        let int : Int = 0
+        let int : UInt32 = 0
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
@@ -54,7 +54,7 @@ extension UIImage {
     }
     
     func getAboveStimulus() -> UIImage? {
-        let int : Int = 0
+        let int : UInt32 = 0
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
@@ -75,7 +75,7 @@ extension UIImage {
     }
     
     func getBelowStimulus() -> UIImage? {
-        let int : Int = 0
+        let int : UInt32 = 0
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)

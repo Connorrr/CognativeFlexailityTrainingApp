@@ -8,9 +8,9 @@
 
 import Foundation
 
-extension Int {
+extension UInt32 {
     
-    func getRandomInt(low: Int, high: Int) -> Int? {
+    func getRandomInt(low: UInt32, high: UInt32) -> UInt32? {
         return arc4random_uniform((high - low + 1) + low)
     }
     
