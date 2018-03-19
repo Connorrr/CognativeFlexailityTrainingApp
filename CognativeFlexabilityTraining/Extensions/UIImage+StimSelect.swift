@@ -16,14 +16,15 @@ extension UIImage {
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
+        print("######## \(String(describing: rand)) ########")
         if rand == 1 {
-            image = UIImage(named: "2.png")
+            image = #imageLiteral(resourceName: "2.png")
         }else if rand == 2 {
-            image = UIImage(named: "4.png")
+            image = #imageLiteral(resourceName: "4.png")
         }else if rand == 3 {
-            image = UIImage(named: "6.png")
+            image = #imageLiteral(resourceName: "6.png")
         }else if rand == 4 {
-            image = UIImage(named: "8.png")
+            image = #imageLiteral(resourceName: "8.png")
         }else{
             image = nil
             print("ERROR:UIIMAGE:getEvenStimulus: incorrect random value:  \(String(describing: rand))")
@@ -37,14 +38,15 @@ extension UIImage {
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
+        print("######## \(String(describing: rand)) ########")
         if rand == 1 {
-            image = UIImage(named: "1.png")
+            image = #imageLiteral(resourceName: "1.png")
         }else if rand == 2 {
-            image = UIImage(named: "3.png")
+            image = #imageLiteral(resourceName: "3.png")
         }else if rand == 3 {
-            image = UIImage(named: "7.png")
+            image = #imageLiteral(resourceName: "7.png")
         }else if rand == 4 {
-            image = UIImage(named: "9.png")
+            image = #imageLiteral(resourceName: "9.png")
         }else{
             image = nil
             print("ERROR:UIIMAGE:getOddStimulus: incorrect random value:  \(String(describing: rand))")
@@ -58,14 +60,15 @@ extension UIImage {
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
+        print("######## \(String(describing: rand)) ########")
         if rand == 1 {
-            image = UIImage(named: "6.png")
+            image = #imageLiteral(resourceName: "6.png")
         }else if rand == 2 {
-            image = UIImage(named: "7.png")
+            image = #imageLiteral(resourceName: "7.png")
         }else if rand == 3 {
-            image = UIImage(named: "8.png")
+            image = #imageLiteral(resourceName: "8.png")
         }else if rand == 4 {
-            image = UIImage(named: "9.png")
+            image = #imageLiteral(resourceName: "9.png")
         }else{
             image = nil
             print("ERROR:UIIMAGE:getAboveStimulus: incorrect random value:  \(String(describing: rand))")
@@ -79,14 +82,15 @@ extension UIImage {
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
+        print("######## \(String(describing: rand)) ########")
         if rand == 1 {
-            image = UIImage(named: "1.png")
+            image = #imageLiteral(resourceName: "1.png")
         }else if rand == 2 {
-            image = UIImage(named: "2.png")
+            image = #imageLiteral(resourceName: "2.png")
         }else if rand == 3 {
-            image = UIImage(named: "3.png")
+            image = #imageLiteral(resourceName: "3.png")
         }else if rand == 4 {
-            image = UIImage(named: "4.png")
+            image = #imageLiteral(resourceName: "4.png")
         }else{
             image = nil
             print("ERROR:UIIMAGE:getAboveStimulus: incorrect random value:  \(String(describing: rand))")

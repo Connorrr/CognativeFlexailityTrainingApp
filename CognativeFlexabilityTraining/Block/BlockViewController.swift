@@ -24,18 +24,23 @@ class BlockViewController: UIViewController {
             if blockType == .mixed {
                 if random.randomBool() {
                     block = Block(startingTrialCondition: .even, numerOfSwitches: 4)
+                    print("Mixed Even")
                 } else {
                     block = Block(startingTrialCondition: .above, numerOfSwitches: 4)
+                    print("Mixed Odd")
                 }
             }else{
                 if random.randomBool() {
                     block = Block(trialCondition: .even)
+                    print("Single Even")
                 } else {
                     block = Block(trialCondition: .above)
+                    print("Single Odd")
                 }
             }
+
             questionLabel.text = block?.trials?[0].question
-            stimImage.image = block?.trials?[0].stim
+            stimImage.image = block?.trials?[0].stim!
         }else{
             questionLabel.text = "ERROR"
         }

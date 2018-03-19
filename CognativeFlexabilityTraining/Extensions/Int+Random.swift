@@ -11,7 +11,7 @@ import Foundation
 extension UInt32 {
     
     func getRandomInt(low: UInt32, high: UInt32) -> UInt32? {
-        return arc4random_uniform((high - low + 1) + low)
+        return arc4random_uniform(high - low + 1) + low
     }
     
 }

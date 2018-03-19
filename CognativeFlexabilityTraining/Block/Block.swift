@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Block {
     
@@ -14,7 +15,7 @@ class Block {
     let numberOfTrials : Int = 17
     let startTrialCondition : TrialCondition
     let numSwitches : Int?
-    var trials : [TrialInfo]?
+    var trials : [TrialInfo]? = []
     
     
     
@@ -42,6 +43,8 @@ class Block {
     
     private func buildTrialList() {
         
+        let img = UIImage()
+        
         var trial = TrialInfo()
         var isevenOdd = true
         if (startTrialCondition == .above || startTrialCondition == .below) {
@@ -63,22 +66,21 @@ class Block {
                 trial.question = "Is this number Even or Odd?"
                 if isevenOdd.randomBool() {
                     trial.condition = .even
-                    trial.stim = trial.stim?.getEvenStimulus()
+                    trial.stim = img.getEvenStimulus()
                 }else{
                     trial.condition = .odd
-                    trial.stim = trial.stim?.getOddStimulus()
+                    trial.stim = img.getOddStimulus()
                 }
             }else{
-                trial.question = "Is this number Aove or Below 5?"
+                trial.question = "Is this number Above or Below 5?"
                 if isevenOdd.randomBool() {
                     trial.condition = .above
-                    trial.stim = trial.stim?.getAboveStimulus()
+                    trial.stim = img.getAboveStimulus()
                 }else{
                     trial.condition = .below
-                    trial.stim = trial.stim?.getBelowStimulus()
+                    trial.stim = img.getBelowStimulus()
                 }
             }
-                
                 
             trials?.append(trial)
         }
