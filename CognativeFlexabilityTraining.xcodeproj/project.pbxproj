@@ -19,6 +19,7 @@
 		BF713225205B8C03003D89D1 /* EvenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BF713221205B8C03003D89D1 /* EvenButton.png */; };
 		BF713226205B8C03003D89D1 /* OddButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BF713222205B8C03003D89D1 /* OddButton.png */; };
 		BF713227205B8C03003D89D1 /* LessThanButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BF713223205B8C03003D89D1 /* LessThanButton.png */; };
+		BF71383B205F42A9008D0108 /* ResponseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF71383A205F42A9008D0108 /* ResponseButton.swift */; };
 		BF884DFD205A2044002262DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884DFC205A2044002262DB /* AppDelegate.swift */; };
 		BF884DFF205A2044002262DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884DFE205A2044002262DB /* ViewController.swift */; };
 		BF884E02205A2044002262DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF884E00205A2044002262DB /* Main.storyboard */; };
@@ -45,6 +46,7 @@
 		BF713221205B8C03003D89D1 /* EvenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EvenButton.png; path = Buttons/EvenButton.png; sourceTree = SOURCE_ROOT; };
 		BF713222205B8C03003D89D1 /* OddButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = OddButton.png; path = Buttons/OddButton.png; sourceTree = SOURCE_ROOT; };
 		BF713223205B8C03003D89D1 /* LessThanButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LessThanButton.png; path = Buttons/LessThanButton.png; sourceTree = SOURCE_ROOT; };
+		BF71383A205F42A9008D0108 /* ResponseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseButton.swift; sourceTree = "<group>"; };
 		BF884DF9205A2044002262DB /* CognativeFlexabilityTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognativeFlexabilityTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF884DFC205A2044002262DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF884DFE205A2044002262DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				BF713220205B8C03003D89D1 /* GreaterThanButton.png */,
 				BF713223205B8C03003D89D1 /* LessThanButton.png */,
 				BF713222205B8C03003D89D1 /* OddButton.png */,
+				BF71383A205F42A9008D0108 /* ResponseButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				BF884E15205A21CF002262DB /* TrialCondition.swift in Sources */,
 				BF884E11205A211C002262DB /* BlockViewController.swift in Sources */,
 				BF884E13205A2147002262DB /* TrialInfo.swift in Sources */,
+				BF71383B205F42A9008D0108 /* ResponseButton.swift in Sources */,
 				BF884E18205A24B0002262DB /* InstructionsTextView.swift in Sources */,
 				BF884DFD205A2044002262DB /* AppDelegate.swift in Sources */,
 			);

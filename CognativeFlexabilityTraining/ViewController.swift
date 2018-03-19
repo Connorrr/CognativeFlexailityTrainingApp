@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextViewDelegate {
     
     let experimentStructure : [BlockType] = [.practice,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
 
@@ -23,9 +23,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        print("The text field was touched up")
+        performSegue(withIdentifier: "presentBlock", sender: nil)
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
         
     }
+
 }
 
