@@ -150,11 +150,12 @@
                         <outlet property="fixationCross" destination="QUf-oY-C62" id="st5-ji-RzL"/>
                         <outlet property="questionLabel" destination="oxx-Ow-HGg" id="qNX-ss-XsI"/>
                         <outlet property="stimImage" destination="QUf-oY-C62" id="ubo-LS-eMW"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="returnToInstructions" id="Bbe-oS-AWF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2e-xJ-0s5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1565" y="39"/>
+            <point key="canvasLocation" x="1037" y="39"/>
         </scene>
     </scenes>
     <resources>

@@ -15,7 +15,6 @@ class ResponseButton: UIButton {
     override func draw(_ rect: CGRect) {
         // Drawing code
         imageView?.contentMode = .scaleAspectFit
-        print("fit?")
     }
     
  

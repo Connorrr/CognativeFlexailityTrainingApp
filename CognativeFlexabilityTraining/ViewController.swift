@@ -11,6 +11,8 @@ import UIKit
 class ViewController: UIViewController, UITextViewDelegate {
     
     let experimentStructure : [BlockType] = [.practice,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
+    
+    var blockProgress : Int = 0
 
     @IBOutlet weak var instructionsTextView: InstructionsTextView!
     
@@ -26,11 +28,15 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     func textViewDidChangeSelection(_ textView: UITextView) {
         print("The text field was touched up")
-        performSegue(withIdentifier: "presentBlock", sender: nil)
+        performSegue(withIdentifier: "presentBlock", sender: experimentStructure[blockProgress])
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "presentBlock" {
+            if let blockViewController = segue.destination as? BlockViewController {
+                blockViewController.blockType = experimentStructure[blockProgress]
+            }
+        }
     }
 
 }

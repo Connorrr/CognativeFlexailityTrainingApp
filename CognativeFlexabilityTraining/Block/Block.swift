@@ -61,14 +61,14 @@ class Block {
                 
             if isevenOdd {
                 trial.question = "Is this number Even or Odd?"
-                if randomBool() {
+                if isevenOdd.randomBool() {
                     trial.condition = .even
                 }else{
                     trial.condition = .odd
                 }
             }else{
                 trial.question = "Is this number Aove or Below 5?"
-                if randomBool() {
+                if isevenOdd.randomBool() {
                     trial.condition = .above
                 }else{
                     trial.condition = .below
@@ -79,10 +79,6 @@ class Block {
             trials?.append(trial)
         }
 
-    }
-    
-    private func randomBool() -> Bool {
-        return arc4random_uniform(2) == 0
     }
     
 }
