@@ -14,43 +14,55 @@ class BlockViewController: UIViewController {
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var stimImage: UIImageView!
     @IBOutlet weak var fixationCross: UILabel!
+    @IBOutlet weak var boarderView: UIView!
+    
+    @IBOutlet weak var greaterThanButton: ResponseButton!
+    @IBOutlet weak var lessThanButton: ResponseButton!
+    @IBOutlet weak var evenButton: ResponseButton!
+    @IBOutlet weak var oddButton: ResponseButton!
+    
+    var currentTrial : Int = 1
+    
+    var trialIndex : Int {
+        return currentTrial-1
+    }
     
     var blockType : BlockType?
     var block : Block?
     
     override func viewWillAppear(_ animated: Bool) {
-        let random = false
-        if blockType != nil {
-            if blockType == .mixed {
-                if random.randomBool() {
-                    block = Block(startingTrialCondition: .even, numerOfSwitches: 4)
-                    print("Mixed Even")
-                } else {
-                    block = Block(startingTrialCondition: .above, numerOfSwitches: 4)
-                    print("Mixed Odd")
-                }
-            }else{
-                if random.randomBool() {
-                    block = Block(trialCondition: .even)
-                    print("Single Even")
-                } else {
-                    block = Block(trialCondition: .above)
-                    print("Single Odd")
-                }
-            }
-
-            questionLabel.text = block?.trials?[0].question
-            stimImage.image = block?.trials?[0].stim!
-        }else{
-            questionLabel.text = "ERROR"
-        }
         super.viewWillAppear(animated)
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let random = false
+        if blockType != nil {
+            if blockType == .mixed {
+                if random.randomBool() {
+                    block = Block(startingTrialCondition: .even, numerOfSwitches: 4)
+                } else {
+                    block = Block(startingTrialCondition: .above, numerOfSwitches: 4)
+                }
+            }else{
+                if random.randomBool() {
+                    block = Block(trialCondition: .even)
+                } else {
+                    block = Block(trialCondition: .above)
+                }
+            }
+            
+            stimImage.image = block!.trials![0].stim!
+            setBoarder(isAboveBelow: (block!.trials![trialIndex].isAboveBelow)!)
+            
+            executeBlock()
+            
+        }else{
+            questionLabel.text = "ERROR"
+        }
         // Do any additional setup after loading the view.
     }
 
@@ -60,15 +72,79 @@ class BlockViewController: UIViewController {
     }
     
     @IBAction func greaterThanButtonPressed(_ sender: UIButton) {
+        trialTimer?.fire()
     }
     
     @IBAction func lessThanButtonPressed(_ sender: UIButton) {
+        trialTimer?.fire()
     }
     
     @IBAction func evenButtonPressed(_ sender: UIButton) {
+        trialTimer?.fire()
     }
     
     @IBAction func oddButtonPressed(_ sender: UIButton) {
+        trialTimer?.fire()
+    }
+    
+    var trialTimer : Timer?
+    
+    func executeBlock() {
+        for _ in 0..<block!.trials!.count {
+
+            //  Display Fixation for 1400 ms
+            displayFixation()
+        
+            //  Show trial for 5000ms or first response
+            displayTrial()
+        
+            //  25ms blank
+            //trialTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (trialTimer) in self.displayBlank() })
+            displayBlank()
+        }
+    }
+    
+    func displayFixation() {
+        fixationCross.isHidden = false
+        stimImage.isHidden = true
+        boarderView.isHidden = true
+        setButtonVisibility(isHidden: true)
+        usleep(1400000)     //  This is intentional locking (1.4s)
+    }
+    
+    func displayTrial() {
+        fixationCross.isHidden = true
+        stimImage.isHidden = false
+        setBoarder(isAboveBelow: (block!.trials![trialIndex].isAboveBelow)!)
+        setButtonVisibility(isHidden: false)
+        usleep(3000000)     //  This is intentional locking (.025s)
+    }
+    
+    func displayBlank() {
+        self.fixationCross.isHidden = true
+        self.stimImage.isHidden = true
+        self.boarderView.isHidden = true
+        self.setButtonVisibility(isHidden: true)
+        usleep(25000)     //  This is intentional locking (.025s)
+        self.currentTrial = self.currentTrial + 1
+    }
+    
+    func setButtonVisibility(isHidden: Bool) {
+        self.greaterThanButton.isHidden = isHidden
+        self.lessThanButton.isHidden = isHidden
+        self.evenButton.isHidden = isHidden
+        self.oddButton.isHidden = isHidden
+    }
+    
+    /// Sets the boarder visibility
+    ///
+    /// - Parameter isAboveBelow: is the trial condition above/below
+    func setBoarder(isAboveBelow: Bool) {
+        if isAboveBelow {
+            boarderView.isHidden = false
+        } else {
+            boarderView.isHidden = true
+        }
     }
     
     // MARK: - Navigation

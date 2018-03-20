@@ -56,6 +56,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEx-hh-i0n" userLabel="Boarder View">
+                                <rect key="frame" x="209" y="347" width="350" height="350"/>
+                                <color key="backgroundColor" red="0.90007048850000004" green="0.62913995980000004" blue="0.40531009439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ot3-dr-gSu" userLabel="StimImage">
                                 <rect key="frame" x="234" y="372" width="300" height="300"/>
                                 <constraints>
@@ -73,7 +77,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is the question for this trial?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxx-Ow-HGg" userLabel="QuestionLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxx-Ow-HGg" userLabel="QuestionLabel">
                                 <rect key="frame" x="50" y="60" width="668" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="c0B-da-qzZ"/>
@@ -140,15 +144,24 @@
                             <constraint firstItem="ot3-dr-gSu" firstAttribute="centerY" secondItem="Jc3-94-6bU" secondAttribute="centerY" id="7oV-aW-u0P"/>
                             <constraint firstItem="oxx-Ow-HGg" firstAttribute="leading" secondItem="Jc3-94-6bU" secondAttribute="leading" constant="50" id="9Zm-kh-3Dt"/>
                             <constraint firstItem="Jc3-94-6bU" firstAttribute="trailing" secondItem="oxx-Ow-HGg" secondAttribute="trailing" constant="50" id="IEu-7Z-HqA"/>
+                            <constraint firstItem="NEx-hh-i0n" firstAttribute="height" secondItem="ot3-dr-gSu" secondAttribute="height" constant="50" id="Wu1-Og-G8U"/>
                             <constraint firstItem="m4I-l8-ad5" firstAttribute="top" secondItem="ot3-dr-gSu" secondAttribute="bottom" constant="100" id="dAb-30-M9X"/>
+                            <constraint firstItem="NEx-hh-i0n" firstAttribute="centerX" secondItem="Jc3-94-6bU" secondAttribute="centerX" id="dJK-cB-NpG"/>
                             <constraint firstItem="ot3-dr-gSu" firstAttribute="centerX" secondItem="Jc3-94-6bU" secondAttribute="centerX" id="fCE-FU-zzp"/>
                             <constraint firstItem="Jc3-94-6bU" firstAttribute="bottom" secondItem="m4I-l8-ad5" secondAttribute="bottom" constant="50" id="mZ3-6Q-j8d"/>
+                            <constraint firstItem="NEx-hh-i0n" firstAttribute="centerY" secondItem="Jc3-94-6bU" secondAttribute="centerY" id="puy-XR-iUF"/>
                             <constraint firstItem="oxx-Ow-HGg" firstAttribute="top" secondItem="Jc3-94-6bU" secondAttribute="top" constant="40" id="r0P-Ss-xyn"/>
+                            <constraint firstItem="NEx-hh-i0n" firstAttribute="width" secondItem="ot3-dr-gSu" secondAttribute="width" constant="50" id="uGc-zI-tP4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jc3-94-6bU"/>
                     </view>
                     <connections>
+                        <outlet property="boarderView" destination="NEx-hh-i0n" id="vtn-Zi-jCd"/>
+                        <outlet property="evenButton" destination="lQ0-d3-tlA" id="VkK-uM-MuP"/>
                         <outlet property="fixationCross" destination="QUf-oY-C62" id="st5-ji-RzL"/>
+                        <outlet property="greaterThanButton" destination="ISt-hX-lUc" id="XTC-Q7-2b7"/>
+                        <outlet property="lessThanButton" destination="RR1-JN-C05" id="ytR-j6-eOJ"/>
+                        <outlet property="oddButton" destination="DTH-RD-j9R" id="m8I-3H-amF"/>
                         <outlet property="questionLabel" destination="oxx-Ow-HGg" id="qNX-ss-XsI"/>
                         <outlet property="stimImage" destination="ot3-dr-gSu" id="X2T-I5-X7W"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="returnToInstructions" id="Bbe-oS-AWF"/>

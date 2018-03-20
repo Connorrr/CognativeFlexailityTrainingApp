@@ -9,8 +9,9 @@
 import UIKit
 
 struct TrialInfo {
-    var question : String?
+    var question : String?          //  Not really necessary at the moment
     var condition : TrialCondition?
     var correctResponse : TrialCondition?
     var stim : UIImage?
+    var isAboveBelow : Bool?
 }

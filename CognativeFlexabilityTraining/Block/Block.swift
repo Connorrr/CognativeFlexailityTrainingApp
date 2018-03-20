@@ -64,6 +64,7 @@ class Block {
                 
             if isevenOdd {
                 trial.question = "Is this number Even or Odd?"
+                trial.isAboveBelow = false
                 if isevenOdd.randomBool() {
                     trial.condition = .even
                     trial.stim = img.getEvenStimulus()
@@ -73,6 +74,7 @@ class Block {
                 }
             }else{
                 trial.question = "Is this number Above or Below 5?"
+                trial.isAboveBelow = true
                 if isevenOdd.randomBool() {
                     trial.condition = .above
                     trial.stim = img.getAboveStimulus()
