@@ -86,7 +86,6 @@ class BlockViewController: UIViewController {
     func executeBlock() {
 
         self.stimImage.image = block?.trials![trialIndex].stim!
-        self.setBoarder(isAboveBelow: block!.trials![trialIndex].isAboveBelow!)
 
         //  Display Fixation for 1400 ms
         displayFixation()
@@ -106,6 +105,7 @@ class BlockViewController: UIViewController {
     }
     
     func displayTrial() {
+        self.setBoarder(isAboveBelow: block!.trials![trialIndex].isAboveBelow!)
         self.fixationCross.isHidden = true
         self.stimImage.isHidden = false
         self.setButtonVisibility(isHidden: false)
@@ -138,9 +138,9 @@ class BlockViewController: UIViewController {
     func setBoarder(isAboveBelow: Bool) {
         print(isAboveBelow)
         if isAboveBelow {
-            boarderView.isHidden = false
+            self.boarderView.isHidden = false
         } else {
-            boarderView.isHidden = true
+            self.boarderView.isHidden = true
         }
     }
     
