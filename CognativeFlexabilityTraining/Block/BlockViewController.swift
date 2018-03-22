@@ -30,18 +30,13 @@ class BlockViewController: UIViewController {
     var blockType : BlockType?
     var block : Block?
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let random = false
         if blockType != nil {
-            if blockType == .mixed {
+            if true {//blockType == .mixed {
                 if random.randomBool() {
                     block = Block(startingTrialCondition: .even, numerOfSwitches: 4)
                 } else {
@@ -54,9 +49,6 @@ class BlockViewController: UIViewController {
                     block = Block(trialCondition: .above)
                 }
             }
-            
-            stimImage.image = block!.trials![0].stim!
-            setBoarder(isAboveBelow: (block!.trials![trialIndex].isAboveBelow)!)
             
             executeBlock()
             
@@ -88,36 +80,36 @@ class BlockViewController: UIViewController {
     }
     
     var trialTimer : Timer?
+    var blankTimer : Timer?
+    var repeatTimer : Timer?
     
     func executeBlock() {
-        for _ in 0..<block!.trials!.count {
 
-            //  Display Fixation for 1400 ms
-            displayFixation()
+        self.stimImage.image = block?.trials![trialIndex].stim!
+        self.setBoarder(isAboveBelow: block!.trials![trialIndex].isAboveBelow!)
+
+        //  Display Fixation for 1400 ms
+        displayFixation()
+    
+        //  Show trial for 5000ms or first response
+        trialTimer = Timer.scheduledTimer(withTimeInterval: 1.4, repeats: false, block: { (trialTimer) in self.displayTrial() })
+    
+        //  25ms blank (called in displayTrial)
         
-            //  Show trial for 5000ms or first response
-            displayTrial()
-        
-            //  25ms blank
-            //trialTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (trialTimer) in self.displayBlank() })
-            displayBlank()
-        }
     }
     
     func displayFixation() {
-        fixationCross.isHidden = false
-        stimImage.isHidden = true
-        boarderView.isHidden = true
-        setButtonVisibility(isHidden: true)
-        usleep(1400000)     //  This is intentional locking (1.4s)
+        self.fixationCross.isHidden = false
+        self.stimImage.isHidden = true
+        self.boarderView.isHidden = true
+        self.setButtonVisibility(isHidden: true)
     }
     
     func displayTrial() {
-        fixationCross.isHidden = true
-        stimImage.isHidden = false
-        setBoarder(isAboveBelow: (block!.trials![trialIndex].isAboveBelow)!)
-        setButtonVisibility(isHidden: false)
-        usleep(3000000)     //  This is intentional locking (.025s)
+        self.fixationCross.isHidden = true
+        self.stimImage.isHidden = false
+        self.setButtonVisibility(isHidden: false)
+        self.blankTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (blankTimer) in self.displayBlank() })
     }
     
     func displayBlank() {
@@ -125,8 +117,12 @@ class BlockViewController: UIViewController {
         self.stimImage.isHidden = true
         self.boarderView.isHidden = true
         self.setButtonVisibility(isHidden: true)
-        usleep(25000)     //  This is intentional locking (.025s)
         self.currentTrial = self.currentTrial + 1
+        if (trialIndex < block!.trials!.count) {
+            repeatTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(repeatTimer) in self.executeBlock()})
+        }else{
+            // TODO:  Seguae back to the instructions
+        }
     }
     
     func setButtonVisibility(isHidden: Bool) {
@@ -140,6 +136,7 @@ class BlockViewController: UIViewController {
     ///
     /// - Parameter isAboveBelow: is the trial condition above/below
     func setBoarder(isAboveBelow: Bool) {
+        print(isAboveBelow)
         if isAboveBelow {
             boarderView.isHidden = false
         } else {

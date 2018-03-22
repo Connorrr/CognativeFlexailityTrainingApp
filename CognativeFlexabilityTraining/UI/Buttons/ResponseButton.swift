@@ -17,6 +17,14 @@ class ResponseButton: UIButton {
         imageView?.contentMode = .scaleAspectFit
     }
     
+    override var isHidden: Bool {
+        didSet {
+            if !isHidden {
+                imageView?.contentMode = .scaleAspectFit
+            }
+        }
+    }
+    
  
 
 }
