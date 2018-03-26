@@ -16,7 +16,6 @@ extension UIImage {
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
-        print("######## \(String(describing: rand)) ########")
         if rand == 1 {
             image = #imageLiteral(resourceName: "2.png")
         }else if rand == 2 {
@@ -38,7 +37,6 @@ extension UIImage {
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
-        print("######## \(String(describing: rand)) ########")
         if rand == 1 {
             image = #imageLiteral(resourceName: "1.png")
         }else if rand == 2 {
@@ -60,7 +58,6 @@ extension UIImage {
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
-        print("######## \(String(describing: rand)) ########")
         if rand == 1 {
             image = #imageLiteral(resourceName: "6.png")
         }else if rand == 2 {
@@ -82,7 +79,6 @@ extension UIImage {
         var image : UIImage?
         
         let rand = int.getRandomInt(low: 1, high: 4)
-        print("######## \(String(describing: rand)) ########")
         if rand == 1 {
             image = #imageLiteral(resourceName: "1.png")
         }else if rand == 2 {

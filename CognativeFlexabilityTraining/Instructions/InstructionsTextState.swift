@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum InstructionsText {
+enum InstructionsTextState {
     case openingText
     case breakText
 }

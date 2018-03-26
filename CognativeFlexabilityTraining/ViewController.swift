@@ -7,18 +7,35 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UITextViewDelegate {
     
     let experimentStructure : [BlockType] = [.practice,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
     
     var blockProgress : Int = 0
+    var instructionsState : InstructionsTextState?
 
     @IBOutlet weak var instructionsTextView: InstructionsTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped))
+        instructionsTextView.addGestureRecognizer(tapRecognizer)
+        
+        if instructionsState == nil {
+            instructionsState = .openingText
+        }
+        
+        switch instructionsState! {
+        case .openingText:
+            print("Opening Text")
+            setText("Opening")
+        case .breakText:
+            print("Break Text")
+            setText("Break")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,8 +43,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func textViewDidChangeSelection(_ textView: UITextView) {
-        print("The text field was touched up")
+    @objc func viewTapped() {
         performSegue(withIdentifier: "presentBlock", sender: experimentStructure[blockProgress])
     }
     
@@ -37,6 +53,21 @@ class ViewController: UIViewController, UITextViewDelegate {
                 blockViewController.blockType = experimentStructure[blockProgress]
             }
         }
+    }
+    
+    // Returns true if succeeded
+    @discardableResult func setText(_ fName:  String) -> Bool{
+        let url = Bundle.main.url(forResource: fName, withExtension: "html")
+        if (url == nil){
+            print("Where dat Url @ brah!")
+            return false
+        }
+        var d : NSDictionary? = nil
+        let s = try! NSAttributedString(url: url!, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: &d)
+        dump(s)
+        self.instructionsTextView.attributedText = s
+        self.instructionsTextView.font = UIFont(name: "Helvetica", size: 24)
+        return true
     }
 
 }

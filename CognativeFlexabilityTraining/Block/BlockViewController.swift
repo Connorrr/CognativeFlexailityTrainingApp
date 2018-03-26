@@ -36,7 +36,7 @@ class BlockViewController: UIViewController {
 
         let random = false
         if blockType != nil {
-            if true {//blockType == .mixed {
+            if blockType == .mixed {
                 if random.randomBool() {
                     block = Block(startingTrialCondition: .even, numerOfSwitches: 4)
                 } else {
@@ -122,7 +122,7 @@ class BlockViewController: UIViewController {
         self.boarderView.isHidden = true
         self.setButtonVisibility(isHidden: true)
         self.currentTrial = self.currentTrial + 1
-        if (trialIndex < block!.trials!.count) {
+        if (trialIndex < 4) {//block!.trials!.count) {
             repeatTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(repeatTimer) in self.executeBlock()})
         }else{
             performSegue(withIdentifier: "returnToInstructions", sender: nil)
@@ -147,13 +147,12 @@ class BlockViewController: UIViewController {
         }
     }
     
-    // MARK: - Navigation
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        print("The sender is \(sender as! BlockType)")
+        if segue.identifier == "returnToInstructions" {
+            print("preparing for segue")
+            if let viewController = segue.destination as? ViewController {
+                viewController.instructionsState = .breakText
+            }
+        }
     }
- */
 }
