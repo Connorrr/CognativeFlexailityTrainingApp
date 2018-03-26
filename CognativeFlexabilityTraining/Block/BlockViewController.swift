@@ -64,19 +64,23 @@ class BlockViewController: UIViewController {
     }
     
     @IBAction func greaterThanButtonPressed(_ sender: UIButton) {
-        trialTimer?.fire()
+        print("GThan Pressed")
+        blankTimer!.fire()
     }
     
     @IBAction func lessThanButtonPressed(_ sender: UIButton) {
-        trialTimer?.fire()
+        print("LThan Pressed")
+        blankTimer!.fire()
     }
     
     @IBAction func evenButtonPressed(_ sender: UIButton) {
-        trialTimer?.fire()
+        print("Even Pressed")
+        blankTimer!.fire()
     }
     
     @IBAction func oddButtonPressed(_ sender: UIButton) {
-        trialTimer?.fire()
+        print("Odd Pressed")
+        blankTimer!.fire()
     }
     
     var trialTimer : Timer?
@@ -121,7 +125,7 @@ class BlockViewController: UIViewController {
         if (trialIndex < block!.trials!.count) {
             repeatTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(repeatTimer) in self.executeBlock()})
         }else{
-            // TODO:  Seguae back to the instructions
+            performSegue(withIdentifier: "returnToInstructions", sender: nil)
         }
     }
     
@@ -136,7 +140,6 @@ class BlockViewController: UIViewController {
     ///
     /// - Parameter isAboveBelow: is the trial condition above/below
     func setBoarder(isAboveBelow: Bool) {
-        print(isAboveBelow)
         if isAboveBelow {
             self.boarderView.isHidden = false
         } else {
