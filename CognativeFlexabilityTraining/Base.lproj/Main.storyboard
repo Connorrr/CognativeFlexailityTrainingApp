@@ -87,14 +87,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m4I-l8-ad5" userLabel="ButtonStackView">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m4I-l8-ad5" userLabel="ButtonStackView">
                                 <rect key="frame" x="50" y="772" width="668" height="202"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISt-hX-lUc" userLabel="GreaterThanButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="202"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="150" id="HbP-4r-jVW"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="202"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <state key="normal" title="Greater Than" image="GreaterThanButton.png"/>
                                         <connections>
@@ -102,7 +99,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RR1-JN-C05" userLabel="LessThanButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
-                                        <rect key="frame" x="172.5" y="0.0" width="150" height="202"/>
+                                        <rect key="frame" x="172.5" y="0.0" width="151.5" height="202"/>
                                         <state key="normal" title="Less Than" image="LessThanButton.png">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -111,7 +108,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQ0-d3-tlA" userLabel="EvenButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
-                                        <rect key="frame" x="345.5" y="0.0" width="150" height="202"/>
+                                        <rect key="frame" x="344" y="0.0" width="152.5" height="202"/>
                                         <state key="normal" title="Even" image="EvenButton.png">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -120,7 +117,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTH-RD-j9R" userLabel="OddButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
-                                        <rect key="frame" x="518" y="0.0" width="150" height="202"/>
+                                        <rect key="frame" x="516.5" y="0.0" width="151.5" height="202"/>
                                         <state key="normal" title="Odd" image="OddButton.png">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>

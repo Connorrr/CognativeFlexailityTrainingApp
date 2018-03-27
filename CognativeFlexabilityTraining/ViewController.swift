@@ -34,7 +34,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         case .breakText:
             setText("Break")
         case .goodbyeText:
-            setText("goodbyeText")
+            setText("Goodbye")
         }
     }
 
