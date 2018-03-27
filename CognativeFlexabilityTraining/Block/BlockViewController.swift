@@ -68,22 +68,18 @@ class BlockViewController: UIViewController {
     }
     
     @IBAction func greaterThanButtonPressed(_ sender: UIButton) {
-        print("GThan Pressed")
         blankTimer!.fire()
     }
     
     @IBAction func lessThanButtonPressed(_ sender: UIButton) {
-        print("LThan Pressed")
         blankTimer!.fire()
     }
     
     @IBAction func evenButtonPressed(_ sender: UIButton) {
-        print("Even Pressed")
         blankTimer!.fire()
     }
     
     @IBAction func oddButtonPressed(_ sender: UIButton) {
-        print("Odd Pressed")
         blankTimer!.fire()
     }
     
@@ -155,7 +151,12 @@ class BlockViewController: UIViewController {
         if segue.identifier == "returnToInstructions" {
             print("preparing for segue")
             if let viewController = segue.destination as? ViewController {
-                viewController.instructionsState = .breakText
+                if blockProgress! + 1 < viewController.experimentStructure.count {
+                    viewController.instructionsState = .breakText
+                }else{
+                    viewController.instructionsState = .goodbyeText
+                }
+                
                 viewController.blockProgress = blockProgress! + 1
             }
         }

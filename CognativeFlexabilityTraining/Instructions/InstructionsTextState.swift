@@ -11,4 +11,5 @@ import Foundation
 enum InstructionsTextState {
     case openingText
     case breakText
+    case goodbyeText
 }

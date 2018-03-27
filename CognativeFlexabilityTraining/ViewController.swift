@@ -33,6 +33,8 @@ class ViewController: UIViewController, UITextViewDelegate {
             setText("Opening")
         case .breakText:
             setText("Break")
+        case .goodbyeText:
+            setText("goodbyeText")
         }
     }
 
@@ -63,7 +65,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         }
         var d : NSDictionary? = nil
         let s = try! NSAttributedString(url: url!, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: &d)
-        dump(s)
         self.instructionsTextView.attributedText = s
         self.instructionsTextView.font = UIFont(name: "Helvetica", size: 24)
         return true
