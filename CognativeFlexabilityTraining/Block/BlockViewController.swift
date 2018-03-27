@@ -21,17 +21,17 @@ class BlockViewController: UIViewController {
     @IBOutlet weak var evenButton: ResponseButton!
     @IBOutlet weak var oddButton: ResponseButton!
     
-    var currentTrial : Int = 1
-    
-    var trialIndex : Int {
-        return currentTrial-1
-    }
-    
     var blockType : BlockType?
     var block : Block?
     var blockProgress : Int?
     
+    var trialIndex : Int {
+        return currentTrial-1
+    }
+    var currentTrial : Int = 1
     var trialData : TrialData?
+    var trialTime : Double?
+    var trialStartTime : Date?
     
     
     override func viewDidLoad() {
@@ -118,9 +118,11 @@ class BlockViewController: UIViewController {
         self.stimImage.isHidden = false
         self.setButtonVisibility(isHidden: false)
         self.blankTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (blankTimer) in self.displayBlank() })
+        trialStartTime = Date()
     }
     
     func displayBlank() {
+        getResponseTime()
         self.fixationCross.isHidden = true
         self.stimImage.isHidden = true
         self.boarderView.isHidden = true
@@ -138,6 +140,13 @@ class BlockViewController: UIViewController {
         self.lessThanButton.isHidden = isHidden
         self.evenButton.isHidden = isHidden
         self.oddButton.isHidden = isHidden
+    }
+    
+    func getResponseTime() {
+        let endTime = Date()
+        let rT = endTime.timeIntervalSince(trialStartTime!)
+        print("Execution time: \(rT)")
+        trialData?.rt = rT
     }
     
     /// Sets the boarder visibility
