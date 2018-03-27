@@ -30,10 +30,8 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         switch instructionsState! {
         case .openingText:
-            print("Opening Text")
             setText("Opening")
         case .breakText:
-            print("Break Text")
             setText("Break")
         }
     }
@@ -44,13 +42,14 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func viewTapped() {
-        performSegue(withIdentifier: "presentBlock", sender: experimentStructure[blockProgress])
+        performSegue(withIdentifier: "presentBlock", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "presentBlock" {
             if let blockViewController = segue.destination as? BlockViewController {
                 blockViewController.blockType = experimentStructure[blockProgress]
+                blockViewController.blockProgress = blockProgress
             }
         }
     }

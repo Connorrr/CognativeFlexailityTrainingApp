@@ -29,10 +29,14 @@ class BlockViewController: UIViewController {
     
     var blockType : BlockType?
     var block : Block?
+    var blockProgress : Int?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("The block type is:  ")
+        dump(blockType)
 
         let random = false
         if blockType != nil {
@@ -152,6 +156,7 @@ class BlockViewController: UIViewController {
             print("preparing for segue")
             if let viewController = segue.destination as? ViewController {
                 viewController.instructionsState = .breakText
+                viewController.blockProgress = blockProgress! + 1
             }
         }
     }
