@@ -31,12 +31,16 @@ class BlockViewController: UIViewController {
     var block : Block?
     var blockProgress : Int?
     
+    var trialData : TrialData?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("The block type is:  ")
         dump(blockType)
+        
+        trialData = TrialData()
 
         let random = false
         if blockType != nil {
