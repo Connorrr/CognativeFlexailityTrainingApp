@@ -7,13 +7,14 @@
 //
 
 struct TrialData {
-    var blockNumber: Int?
-    var trialNum: Int?
-    var blockType: String?
-    var trialType: String?
-    var stim: String?
-    var response: String?
-    var rt: Double?
-    var corr: Int?
-    var time: String?
+    var blockNumber : Int?
+    var trialNum : Int?
+    var trialCondition : String?
+    var blockType : String?
+    var trialType : String?
+    var stim : String?
+    var response : String?
+    var rt : Double?
+    var corr : Int?
+    var time : String?
 }

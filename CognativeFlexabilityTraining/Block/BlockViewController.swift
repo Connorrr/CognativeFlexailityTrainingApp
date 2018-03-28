@@ -40,8 +40,6 @@ class BlockViewController: UIViewController {
         print("The block type is:  ")
         dump(blockType)
         
-        trialData = TrialData()
-
         let random = false
         if blockType != nil {
             if blockType == .mixed {
@@ -94,7 +92,9 @@ class BlockViewController: UIViewController {
     func executeBlock() {
 
         self.stimImage.image = block?.trials![trialIndex].stim!
-
+        
+        setUpTrialData()
+        
         //  Display Fixation for 1400 ms
         displayFixation()
     
@@ -149,14 +149,40 @@ class BlockViewController: UIViewController {
         trialData?.rt = rT
     }
     
-    /// Sets the boarder visibility
-    ///
-    /// - Parameter isAboveBelow: is the trial condition above/below
+    /// Sets the boarder visibility for the ox around stim
     func setBoarder(isAboveBelow: Bool) {
         if isAboveBelow {
             self.boarderView.isHidden = false
         } else {
             self.boarderView.isHidden = true
+        }
+    }
+    
+    func setUpTrialData() {
+        trialData = TrialData()
+        trialData?.trialNum = currentTrial
+        trialData?.blockNumber = blockProgress
+        
+        switch blockType! {
+        case .practice:
+            trialData?.blockType = "Practice"
+        case .mixed:
+            trialData?.blockType = "Mixed"
+        case .single:
+            trialData?.blockType = "Single"
+        }
+        
+        trialData?.stim = block?.trials![trialIndex].stimName!
+        
+        switch block!.trials![trialIndex].condition! {
+        case .even:
+            trialData?.trialCondition = "even"
+        case .odd:
+            trialData?.trialCondition = "odd"
+        case .above:
+            trialData?.trialCondition = "above"
+        case .below:
+            trialData?.trialCondition = "below"
         }
     }
     

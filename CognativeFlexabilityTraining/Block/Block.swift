@@ -66,21 +66,29 @@ class Block {
                 trial.question = "Is this number Even or Odd?"
                 trial.isAboveBelow = false
                 if isevenOdd.randomBool() {
+                    let data = img.getEvenStimulus()
                     trial.condition = .even
-                    trial.stim = img.getEvenStimulus()
+                    trial.stim = data.0
+                    trial.stimName = data.1?.description
                 }else{
+                    let data = img.getOddStimulus()
                     trial.condition = .odd
-                    trial.stim = img.getOddStimulus()
+                    trial.stim = data.0
+                    trial.stimName = data.1?.description
                 }
             }else{
                 trial.question = "Is this number Above or Below 5?"
                 trial.isAboveBelow = true
                 if isevenOdd.randomBool() {
+                    let data = img.getAboveStimulus()
                     trial.condition = .above
-                    trial.stim = img.getAboveStimulus()
+                    trial.stim = data.0
+                    trial.stimName = data.1?.description
                 }else{
+                    let data = img.getBelowStimulus()
                     trial.condition = .below
-                    trial.stim = img.getBelowStimulus()
+                    trial.stim = data.0
+                    trial.stimName = data.1?.description
                 }
             }
                 

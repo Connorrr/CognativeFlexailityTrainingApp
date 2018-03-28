@@ -11,7 +11,7 @@ import UIKit
 
 extension UIImage {
     
-    func getEvenStimulus() -> UIImage? {
+    func getEvenStimulus() -> (UIImage?, UInt32?) {
         let int : UInt32 = 0
         var image : UIImage?
         
@@ -29,10 +29,10 @@ extension UIImage {
             print("ERROR:UIIMAGE:getEvenStimulus: incorrect random value:  \(String(describing: rand))")
         }
         
-        return image
+        return (image, rand)
     }
     
-    func getOddStimulus() -> UIImage? {
+    func getOddStimulus() -> (UIImage?, UInt32?)  {
         let int : UInt32 = 0
         var image : UIImage?
         
@@ -50,10 +50,10 @@ extension UIImage {
             print("ERROR:UIIMAGE:getOddStimulus: incorrect random value:  \(String(describing: rand))")
         }
         
-        return image
+        return (image, rand)
     }
     
-    func getAboveStimulus() -> UIImage? {
+    func getAboveStimulus() -> (UIImage?, UInt32?) {
         let int : UInt32 = 0
         var image : UIImage?
         
@@ -71,10 +71,10 @@ extension UIImage {
             print("ERROR:UIIMAGE:getAboveStimulus: incorrect random value:  \(String(describing: rand))")
         }
         
-        return image
+        return (image, rand)
     }
     
-    func getBelowStimulus() -> UIImage? {
+    func getBelowStimulus() -> (UIImage?, UInt32?) {
         let int : UInt32 = 0
         var image : UIImage?
         
@@ -92,7 +92,7 @@ extension UIImage {
             print("ERROR:UIIMAGE:getAboveStimulus: incorrect random value:  \(String(describing: rand))")
         }
         
-        return image
+        return (image,rand)
     }
     
 }
