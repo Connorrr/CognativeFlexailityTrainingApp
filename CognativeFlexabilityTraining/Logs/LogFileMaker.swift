@@ -15,7 +15,29 @@ class LogFileMaker {
         fName = fileName
     }
     
-    func convertLogFileDataToCSVString() -> String {
+    
+    /// Saves the data from LogFileData into csv on the local directory with the filename specified
+    func saveData() {
+        let logString = convertLogFileDataToCSVString()
+        
+        let file = "\(fName).csv" //this is the file. we will write to and read from it
+        
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            
+            let fileURL = dir.appendingPathComponent(file)
+            
+            //writing
+            do {
+                try logString.write(to: fileURL, atomically: false, encoding: .utf8)
+            }
+            catch {
+                print("LogFileMaker: SaveData():  Could not save the log file.")
+            }
+
+        }
+    }
+    
+    private func convertLogFileDataToCSVString() -> String {
         var csvString = "Block No, Trial No, Trial Type, Trial Condition, Stim, Response, Rt, Correct, Time Elapsed\n"
         
         for blockData in LogFileData.logData {
