@@ -137,6 +137,10 @@ class BlockViewController: UIViewController {
         }else{
             performSegue(withIdentifier: "returnToInstructions", sender: nil)
         }
+        let defaults = UserDefaults.standard
+        let startTime = defaults.object(forKey: "startTime") as! Date
+        
+        trialData?.time = Date(timeIntervalSinceNow: 0.25).timeIntervalSince(startTime).description
     }
     
     func setButtonVisibility(isHidden: Bool) {
