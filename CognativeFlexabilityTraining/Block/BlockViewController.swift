@@ -71,18 +71,22 @@ class BlockViewController: UIViewController {
     
     @IBAction func greaterThanButtonPressed(_ sender: UIButton) {
         blankTimer!.fire()
+        trialData?.response = "Greater"
     }
     
     @IBAction func lessThanButtonPressed(_ sender: UIButton) {
         blankTimer!.fire()
+        trialData?.response = "Less"
     }
     
     @IBAction func evenButtonPressed(_ sender: UIButton) {
         blankTimer!.fire()
+        trialData?.response = "Even"
     }
     
     @IBAction func oddButtonPressed(_ sender: UIButton) {
         blankTimer!.fire()
+        trialData?.response = "Odd"
     }
     
     var trialTimer : Timer?
@@ -128,7 +132,7 @@ class BlockViewController: UIViewController {
         self.boarderView.isHidden = true
         self.setButtonVisibility(isHidden: true)
         self.currentTrial = self.currentTrial + 1
-        if (trialIndex < 4) {//block!.trials!.count) {
+        if (trialIndex < 4) {//block!.trials!.count) {  TODO:  remove this before finish
             repeatTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(repeatTimer) in self.executeBlock()})
         }else{
             performSegue(withIdentifier: "returnToInstructions", sender: nil)
@@ -147,6 +151,14 @@ class BlockViewController: UIViewController {
         let rT = endTime.timeIntervalSince(trialStartTime!)
         print("Execution time: \(rT)")
         trialData?.rt = rT
+    }
+    
+    func checkCorr(response: TrialCondition) {
+        if response == block!.trials![trialIndex].correctResponse {
+            trialData?.corr = 1
+        }else{
+            trialData?.corr = 0
+        }
     }
     
     /// Sets the boarder visibility for the ox around stim
