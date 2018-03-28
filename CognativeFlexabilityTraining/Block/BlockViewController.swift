@@ -24,6 +24,7 @@ class BlockViewController: UIViewController {
     var blockType : BlockType?
     var block : Block?
     var blockProgress : Int?
+    var blockData = BlockData()
     
     var trialIndex : Int {
         return currentTrial-1
@@ -132,15 +133,16 @@ class BlockViewController: UIViewController {
         self.boarderView.isHidden = true
         self.setButtonVisibility(isHidden: true)
         self.currentTrial = self.currentTrial + 1
+        let defaults = UserDefaults.standard
+        let startTime = defaults.object(forKey: "startTime") as! Date
+        trialData?.time = Date(timeIntervalSinceNow: 0.25).timeIntervalSince(startTime).description
+        blockData.trialDataArray[trialIndex] = trialData!
         if (trialIndex < 4) {//block!.trials!.count) {  TODO:  remove this before finish
             repeatTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(repeatTimer) in self.executeBlock()})
         }else{
+            LogFileData.logData[trialIndex] = blockData
             performSegue(withIdentifier: "returnToInstructions", sender: nil)
         }
-        let defaults = UserDefaults.standard
-        let startTime = defaults.object(forKey: "startTime") as! Date
-        
-        trialData?.time = Date(timeIntervalSinceNow: 0.25).timeIntervalSince(startTime).description
     }
     
     func setButtonVisibility(isHidden: Bool) {

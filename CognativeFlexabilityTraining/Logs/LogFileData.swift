@@ -9,6 +9,7 @@
 import Foundation
 
 public struct LogFileData {
-    static let nubmerOfBlocks = 21
-    static let logData = Array(repeating: TrialData(), count: nubmerOfBlocks)
+    static let nubmerOfBlocks = 22
+    static let numberOfTrialsPerBlock = 17
+    static var logData = Array(repeating: BlockData(), count: nubmerOfBlocks)
 }

@@ -11,6 +11,7 @@
 		BF6CB0FD206A103F00FBCF39 /* LogFileMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CB0FC206A103F00FBCF39 /* LogFileMaker.swift */; };
 		BF6CB0FF206A10B000FBCF39 /* TrialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CB0FE206A10B000FBCF39 /* TrialData.swift */; };
 		BF6CB101206B4CD500FBCF39 /* LogFileData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CB100206B4CD500FBCF39 /* LogFileData.swift */; };
+		BF6CB103206B519900FBCF39 /* BlockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CB102206B519900FBCF39 /* BlockData.swift */; };
 		BF713215205B7A02003D89D1 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = BF71320D205B7A01003D89D1 /* 2.png */; };
 		BF713216205B7A02003D89D1 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = BF71320E205B7A01003D89D1 /* 1.png */; };
 		BF713217205B7A02003D89D1 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = BF71320F205B7A02003D89D1 /* 6.png */; };
@@ -48,6 +49,7 @@
 		BF6CB0FC206A103F00FBCF39 /* LogFileMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFileMaker.swift; sourceTree = "<group>"; };
 		BF6CB0FE206A10B000FBCF39 /* TrialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialData.swift; sourceTree = "<group>"; };
 		BF6CB100206B4CD500FBCF39 /* LogFileData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFileData.swift; sourceTree = "<group>"; };
+		BF6CB102206B519900FBCF39 /* BlockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockData.swift; sourceTree = "<group>"; };
 		BF71320D205B7A01003D89D1 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 2.png; path = CognativeFlexabilityTraining/Stimulus/2.png; sourceTree = SOURCE_ROOT; };
 		BF71320E205B7A01003D89D1 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1.png; path = CognativeFlexabilityTraining/Stimulus/1.png; sourceTree = SOURCE_ROOT; };
 		BF71320F205B7A02003D89D1 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6.png; path = CognativeFlexabilityTraining/Stimulus/6.png; sourceTree = SOURCE_ROOT; };
@@ -99,6 +101,7 @@
 				BF6CB0FC206A103F00FBCF39 /* LogFileMaker.swift */,
 				BF6CB0FE206A10B000FBCF39 /* TrialData.swift */,
 				BF6CB100206B4CD500FBCF39 /* LogFileData.swift */,
+				BF6CB102206B519900FBCF39 /* BlockData.swift */,
 			);
 			path = Logs;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				BF884E11205A211C002262DB /* BlockViewController.swift in Sources */,
 				BF884E13205A2147002262DB /* TrialInfo.swift in Sources */,
 				BF6CB101206B4CD500FBCF39 /* LogFileData.swift in Sources */,
+				BF6CB103206B519900FBCF39 /* BlockData.swift in Sources */,
 				BFE4C837205F757700E24D5D /* UIImage+StimSelect.swift in Sources */,
 				BF71383B205F42A9008D0108 /* ResponseButton.swift in Sources */,
 				BF6CB0FD206A103F00FBCF39 /* LogFileMaker.swift in Sources */,
