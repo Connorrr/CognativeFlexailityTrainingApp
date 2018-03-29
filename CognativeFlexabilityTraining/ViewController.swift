@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     var blockProgress : Int = 0
     var instructionsState : InstructionsTextState?
+    
+    let logFileMaker = LogFileMaker(fileName: "test")
 
     @IBOutlet weak var instructionsTextView: InstructionsTextView!
     
@@ -35,6 +37,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             setText("Break")
         case .goodbyeText:
             setText("Goodbye")
+            logFileMaker.saveData()
         }
     }
 

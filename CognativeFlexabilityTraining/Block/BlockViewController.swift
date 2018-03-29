@@ -71,23 +71,27 @@ class BlockViewController: UIViewController {
     }
     
     @IBAction func greaterThanButtonPressed(_ sender: UIButton) {
-        blankTimer!.fire()
         trialData?.response = "Greater"
+        checkCorr(response: .above)
+        blankTimer!.fire()
     }
     
     @IBAction func lessThanButtonPressed(_ sender: UIButton) {
-        blankTimer!.fire()
         trialData?.response = "Less"
+        checkCorr(response: .below)
+        blankTimer!.fire()
     }
     
     @IBAction func evenButtonPressed(_ sender: UIButton) {
-        blankTimer!.fire()
         trialData?.response = "Even"
+        checkCorr(response: .even)
+        blankTimer!.fire()
     }
     
     @IBAction func oddButtonPressed(_ sender: UIButton) {
-        blankTimer!.fire()
         trialData?.response = "Odd"
+        checkCorr(response: .odd)
+        blankTimer!.fire()
     }
     
     var trialTimer : Timer?
@@ -132,14 +136,16 @@ class BlockViewController: UIViewController {
         self.stimImage.isHidden = true
         self.boarderView.isHidden = true
         self.setButtonVisibility(isHidden: true)
-        self.currentTrial = self.currentTrial + 1
         let defaults = UserDefaults.standard
         let startTime = defaults.object(forKey: "startTime") as! Date
         trialData?.time = Date(timeIntervalSinceNow: 0.25).timeIntervalSince(startTime).description
         blockData.trialDataArray[trialIndex] = trialData!
         if (trialIndex < 4) {//block!.trials!.count) {  TODO:  remove this before finish
+            dump(trialData)
+            self.currentTrial = self.currentTrial + 1
             repeatTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(repeatTimer) in self.executeBlock()})
         }else{
+            dump(blockData)
             LogFileData.logData[trialIndex] = blockData
             performSegue(withIdentifier: "returnToInstructions", sender: nil)
         }
@@ -155,12 +161,12 @@ class BlockViewController: UIViewController {
     func getResponseTime() {
         let endTime = Date()
         let rT = endTime.timeIntervalSince(trialStartTime!)
-        print("Execution time: \(rT)")
+        //print("Execution time: \(rT)")
         trialData?.rt = rT
     }
     
     func checkCorr(response: TrialCondition) {
-        if response == block!.trials![trialIndex].correctResponse {
+        if response == block!.trials![trialIndex].condition! {
             trialData?.corr = 1
         }else{
             trialData?.corr = 0
@@ -198,9 +204,9 @@ class BlockViewController: UIViewController {
         case .odd:
             trialData?.trialCondition = "odd"
         case .above:
-            trialData?.trialCondition = "above"
+            trialData?.trialCondition = "Greater"
         case .below:
-            trialData?.trialCondition = "below"
+            trialData?.trialCondition = "Less"
         }
     }
     

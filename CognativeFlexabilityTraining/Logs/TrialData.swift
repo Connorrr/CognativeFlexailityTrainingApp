@@ -11,7 +11,6 @@ struct TrialData {
     var trialNum : Int?
     var trialCondition : String?
     var blockType : String?
-    var trialType : String?
     var stim : String?
     var response : String?
     var rt : Double?
