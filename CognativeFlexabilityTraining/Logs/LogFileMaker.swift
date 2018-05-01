@@ -18,6 +18,7 @@ class LogFileMaker {
     
     /// Saves the data from LogFileData into csv on the local directory with the filename specified
     func saveData() {
+        dump(LogFileData.logData)
         let logString = convertLogFileDataToCSVString()
         print(logString)
         

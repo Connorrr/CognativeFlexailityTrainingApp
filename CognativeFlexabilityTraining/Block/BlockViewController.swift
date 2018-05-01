@@ -60,7 +60,7 @@ class BlockViewController: UIViewController {
             executeBlock()
             
         }else{
-            questionLabel.text = "ERROR"
+            questionLabel.text = "ERROR: BlockViewController: Block Type missing"
         }
         // Do any additional setup after loading the view.
     }
@@ -141,12 +141,10 @@ class BlockViewController: UIViewController {
         trialData?.time = Date(timeIntervalSinceNow: 0.25).timeIntervalSince(startTime).description
         blockData.trialDataArray[trialIndex] = trialData!
         if (trialIndex < 4) {//block!.trials!.count) {  TODO:  remove this before finish
-            dump(trialData)
             self.currentTrial = self.currentTrial + 1
             repeatTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(repeatTimer) in self.executeBlock()})
-        }else{
-            dump(blockData)
-            LogFileData.logData[trialIndex] = blockData
+        }else{      //MARK:  This is the end of the trials
+            LogFileData.logData[blockProgress!] = blockData
             performSegue(withIdentifier: "returnToInstructions", sender: nil)
         }
     }
