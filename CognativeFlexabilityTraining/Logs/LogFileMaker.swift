@@ -10,15 +10,29 @@ import Foundation
 
 class LogFileMaker {
     var fName: String
+    var logData : [TrialData]?
     
     init(fileName: String) {
         fName = fileName
     }
     
+    func retrieveBlockData () -> Bool{
+        
+        guard let propertyListLogs = UserDefaults.standard.object(forKey: "BlockData") as? [[String:Any]] else {
+            print("'BlockData' not found in UserDefaults")
+            return false
+        }
+        
+        logData = propertyListLogs.compactMap{ TrialData(dictionary: $0) }
+        return true
+    }
+    
     
     /// Saves the data from LogFileData into csv on the local directory with the filename specified
-    func saveData() {
-        dump(LogFileData.logData)
+    func saveData() -> Bool {
+        
+        if !retrieveBlockData() { return false }
+        
         let logString = convertLogFileDataToCSVString()
         print(logString)
         
@@ -34,18 +48,18 @@ class LogFileMaker {
             }
             catch {
                 print("LogFileMaker: SaveData():  Could not save the log file.")
+                return false
             }
 
         }
+        return true
     }
     
     private func convertLogFileDataToCSVString() -> String {
         var csvString = "Block No, Trial No, Trial Type, Trial Condition, Stim, Response, Rt, Correct, Time Elapsed\n"
         
-        for blockData in LogFileData.logData {
-            for trialData in blockData.trialDataArray {
-                csvString.append("\(String(describing: trialData.blockNumber)),\(String(describing: trialData.trialNum)),\(String(describing: trialData.trialCondition)),\(String(describing: trialData.stim)),\(String(describing: trialData.response)),\(String(describing: trialData.rt)),\(String(describing: trialData.corr)),\(String(describing: trialData.time))\n")
-            }
+        for trialData in logData! {
+            csvString.append("\(String(describing: trialData.blockNumber)),\(String(describing: trialData.trialNum)),\(String(describing: trialData.trialCondition)),\(String(describing: trialData.stim)),\(String(describing: trialData.response)),\(String(describing: trialData.rt)),\(String(describing: trialData.corr)),\(String(describing: trialData.time))\n")
         }
         
         return csvString

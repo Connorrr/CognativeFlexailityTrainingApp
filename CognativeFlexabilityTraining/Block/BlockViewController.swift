@@ -24,13 +24,13 @@ class BlockViewController: UIViewController {
     var blockType : BlockType?
     var block : Block?
     var blockProgress : Int?
-    var blockData = BlockData()
+    var blockData : [TrialData] = []
     
     var trialIndex : Int {
         return currentTrial-1
     }
     var currentTrial : Int = 1
-    var trialData : TrialData?
+    var trialData = TrialData()
     var trialTime : Double?
     var trialStartTime : Date?
     
@@ -71,25 +71,25 @@ class BlockViewController: UIViewController {
     }
     
     @IBAction func greaterThanButtonPressed(_ sender: UIButton) {
-        trialData?.response = "Greater"
+        trialData.response = "Greater"
         checkCorr(response: .above)
         blankTimer!.fire()
     }
     
     @IBAction func lessThanButtonPressed(_ sender: UIButton) {
-        trialData?.response = "Less"
+        trialData.response = "Less"
         checkCorr(response: .below)
         blankTimer!.fire()
     }
     
     @IBAction func evenButtonPressed(_ sender: UIButton) {
-        trialData?.response = "Even"
+        trialData.response = "Even"
         checkCorr(response: .even)
         blankTimer!.fire()
     }
     
     @IBAction func oddButtonPressed(_ sender: UIButton) {
-        trialData?.response = "Odd"
+        trialData.response = "Odd"
         checkCorr(response: .odd)
         blankTimer!.fire()
     }
@@ -138,15 +138,26 @@ class BlockViewController: UIViewController {
         self.setButtonVisibility(isHidden: true)
         let defaults = UserDefaults.standard
         let startTime = defaults.object(forKey: "startTime") as! Date
-        trialData?.time = Date(timeIntervalSinceNow: 0.25).timeIntervalSince(startTime).description
-        blockData.trialDataArray[trialIndex] = trialData!
+        trialData.time = Date(timeIntervalSinceNow: 0.25).timeIntervalSince(startTime).description
+        blockData.append(trialData)
         if (trialIndex < 4) {//block!.trials!.count) {  TODO:  remove this before finish
             self.currentTrial = self.currentTrial + 1
             repeatTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(repeatTimer) in self.executeBlock()})
         }else{      //MARK:  This is the end of the trials
-            LogFileData.logData[blockProgress!] = blockData
+            saveBlockData()
+            
             performSegue(withIdentifier: "returnToInstructions", sender: nil)
         }
+    }
+    
+    func saveBlockData () {
+
+        print("put in array")
+        dump(blockData)
+        let logData = blockData.map{$0.propertyListRepresentation}      //  Return the property list compliant version of the struct
+        print("put in archiver")
+        UserDefaults.standard.set(logData, forKey: "BlockData")
+        print("put in defaults")
     }
     
     func setButtonVisibility(isHidden: Bool) {
@@ -160,14 +171,14 @@ class BlockViewController: UIViewController {
         let endTime = Date()
         let rT = endTime.timeIntervalSince(trialStartTime!)
         //print("Execution time: \(rT)")
-        trialData?.rt = rT
+        trialData.rt = rT
     }
     
     func checkCorr(response: TrialCondition) {
         if response == block!.trials![trialIndex].condition! {
-            trialData?.corr = 1
+            trialData.corr = 1
         }else{
-            trialData?.corr = 0
+            trialData.corr = 0
         }
     }
     
@@ -182,29 +193,29 @@ class BlockViewController: UIViewController {
     
     func setUpTrialData() {
         trialData = TrialData()
-        trialData?.trialNum = currentTrial
-        trialData?.blockNumber = blockProgress
+        trialData.trialNum = currentTrial
+        trialData.blockNumber = blockProgress!
         
         switch blockType! {
         case .practice:
-            trialData?.blockType = "Practice"
+            trialData.blockType = "Practice"
         case .mixed:
-            trialData?.blockType = "Mixed"
+            trialData.blockType = "Mixed"
         case .single:
-            trialData?.blockType = "Single"
+            trialData.blockType = "Single"
         }
         
-        trialData?.stim = block?.trials![trialIndex].stimName!
+        trialData.stim = block!.trials![trialIndex].stimName!
         
         switch block!.trials![trialIndex].condition! {
         case .even:
-            trialData?.trialCondition = "even"
+            trialData.trialCondition = "even"
         case .odd:
-            trialData?.trialCondition = "odd"
+            trialData.trialCondition = "odd"
         case .above:
-            trialData?.trialCondition = "Greater"
+            trialData.trialCondition = "Greater"
         case .below:
-            trialData?.trialCondition = "Less"
+            trialData.trialCondition = "Less"
         }
     }
     

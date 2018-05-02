@@ -11,7 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController, UITextViewDelegate {
     
-    let experimentStructure : [BlockType] = [.practice,.practice,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
+    let experimentStructure : [BlockType] = [.practice,.practice]//,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed] TODO: Remove this before I finish
     
     var blockProgress : Int = 0
     var instructionsState : InstructionsTextState?
@@ -37,7 +37,9 @@ class ViewController: UIViewController, UITextViewDelegate {
             setText("Break")
         case .goodbyeText:
             setText("Goodbye")
-            logFileMaker.saveData()
+            if !logFileMaker.saveData() {
+                print("Error:  Unable to save the log file data")
+            }
         }
     }
 
@@ -53,7 +55,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "presentBlock" {
             if let blockViewController = segue.destination as? BlockViewController {
-                blockViewController.blockType = experimentStructure[blockProgress]
+                blockViewController.blockType = experimentStructure[blockProgress]  // TODO:  Change this for the final page
                 blockViewController.blockProgress = blockProgress
             }
         }
