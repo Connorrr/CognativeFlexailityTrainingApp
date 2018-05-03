@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        LogFileMaker = LogFileMaker(fileName: "\(fileName!)-\(getDateString)")
+        logFileMaker = LogFileMaker(fileName: "\(StaticVars.id)-\(getDateString())")
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped))
         instructionsTextView.addGestureRecognizer(tapRecognizer)
@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITextViewDelegate {
             setText("Break")
         case .goodbyeText:
             setText("Goodbye")
-            if !logFileMaker.saveData() {
+            if !logFileMaker!.saveData() {
                 print("Error:  Unable to save the log file data")
             }
         }
@@ -52,10 +52,10 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
     
     func getDateString () -> String {
-        let date = NSDate()
-        var dateFormatter = NSDateFormatter()
+        let date = Date()
+        let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy"
-        return dateFormatter.stringFromDate(date)
+        return dateFormatter.string(from: date)
     }
     
     @objc func viewTapped() {

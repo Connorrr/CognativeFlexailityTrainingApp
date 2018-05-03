@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF056EDC209AACCD000F65D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF056EDB209AACCD000F65D6 /* LoginViewController.swift */; };
+		BF056EE0209ADF03000F65D6 /* StaticVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF056EDF209ADF03000F65D6 /* StaticVars.swift */; };
 		BF6CB0FA2069FCB500FBCF39 /* Goodbye.html in Resources */ = {isa = PBXBuildFile; fileRef = BF6CB0F92069FCB500FBCF39 /* Goodbye.html */; };
 		BF6CB0FD206A103F00FBCF39 /* LogFileMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CB0FC206A103F00FBCF39 /* LogFileMaker.swift */; };
 		BF6CB0FF206A10B000FBCF39 /* TrialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CB0FE206A10B000FBCF39 /* TrialData.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		BF056EDB209AACCD000F65D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BF056EDF209ADF03000F65D6 /* StaticVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticVars.swift; sourceTree = "<group>"; };
 		BF6CB0F92069FCB500FBCF39 /* Goodbye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Goodbye.html; sourceTree = "<group>"; };
 		BF6CB0FC206A103F00FBCF39 /* LogFileMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFileMaker.swift; sourceTree = "<group>"; };
 		BF6CB0FE206A10B000FBCF39 /* TrialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialData.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 				BF056EDB209AACCD000F65D6 /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		BF056EDE209ADEED000F65D6 /* Globals */ = {
+			isa = PBXGroup;
+			children = (
+				BF056EDF209ADF03000F65D6 /* StaticVars.swift */,
+			);
+			path = Globals;
 			sourceTree = "<group>";
 		};
 		BF6CB0FB206A101600FBCF39 /* Logs */ = {
@@ -180,6 +190,7 @@
 		BF884DFB205A2044002262DB /* CognativeFlexabilityTraining */ = {
 			isa = PBXGroup;
 			children = (
+				BF056EDE209ADEED000F65D6 /* Globals */,
 				BF056EDD209AACD6000F65D6 /* Login */,
 				BF6CB0FB206A101600FBCF39 /* Logs */,
 				BF71383C205F6D48008D0108 /* Extensions */,
@@ -326,6 +337,7 @@
 			files = (
 				BF056EDC209AACCD000F65D6 /* LoginViewController.swift in Sources */,
 				BF884DFF205A2044002262DB /* InstructionViewController.swift in Sources */,
+				BF056EE0209ADF03000F65D6 /* StaticVars.swift in Sources */,
 				BF91B914206881C600C86DED /* InstructionsTextState.swift in Sources */,
 				BF6CB0FF206A10B000FBCF39 /* TrialData.swift in Sources */,
 				BF884E1C205A30AE002262DB /* Block.swift in Sources */,

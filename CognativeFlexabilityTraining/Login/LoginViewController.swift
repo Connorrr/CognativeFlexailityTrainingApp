@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var idField: UITextField!
     
     @IBAction func startButtonPressed(_ sender: UIButton) {
-        
+        beginTrials()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,9 @@ class LoginViewController: UIViewController {
     }
     
     func beginTrials(){
+        let id = idField.text!
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async{
-            if (self.idField.text == ""){     //  id field empty
+            if (id == ""){     //  id field empty
                 //print("There was no text for me")
                 let alert = UIAlertController(title: nil, message: "Please enter ID before you continue.", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Return", style: UIAlertActionStyle.default, handler: nil))
@@ -37,6 +38,7 @@ class LoginViewController: UIViewController {
                 }
             }else{
                 DispatchQueue.main.async {
+                    StaticVars.id = id
                     self.performSegue(withIdentifier: "loginToInstructions", sender: nil)
                 }
             }
@@ -46,12 +48,12 @@ class LoginViewController: UIViewController {
     
     // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "loginToInstructions" {
             if let instructionsViewController = segue.destination as? ViewController {
                 instructionsViewController.fileName = self.idField.text!
             }
         }
-    }
+    }*/
 
 }

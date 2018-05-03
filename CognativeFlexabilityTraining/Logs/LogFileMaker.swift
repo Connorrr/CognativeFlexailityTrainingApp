@@ -68,5 +68,6 @@ class LogFileMaker {
     
     func removeUserData () {
         UserDefaults.standard.removeObject(forKey: "BlockData")
+        print("remvoed trial data")
     }
 }
