@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        LogFileMaker = LogFileMaker(fileName: fileName!)
+        LogFileMaker = LogFileMaker(fileName: "\(fileName!)-\(getDateString)")
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped))
         instructionsTextView.addGestureRecognizer(tapRecognizer)
@@ -51,8 +51,19 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func getDateString () -> String {
+        let date = NSDate()
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        return dateFormatter.stringFromDate(date)
+    }
+    
     @objc func viewTapped() {
-        performSegue(withIdentifier: "presentBlock", sender: nil)
+        if instructionsState! == .goodbyeText {
+            performSegue(withIdentifier: "instructionsToLogin", sender: nil)
+        }else{
+            performSegue(withIdentifier: "presentBlock", sender: nil)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

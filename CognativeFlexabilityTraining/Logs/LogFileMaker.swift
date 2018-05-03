@@ -44,7 +44,6 @@ class LogFileMaker {
             
             //writing
             do {
-                print("writing to \(fileURL)")
                 try logString.write(to: fileURL, atomically: false, encoding: .utf8)
             }
             catch {
@@ -53,6 +52,7 @@ class LogFileMaker {
             }
 
         }
+        removeUserData()
         return true
     }
     
@@ -64,5 +64,9 @@ class LogFileMaker {
         }
         
         return csvString
+    }
+    
+    func removeUserData () {
+        UserDefaults.standard.removeObject(forKey: "BlockData")
     }
 }
