@@ -16,12 +16,15 @@ class ViewController: UIViewController, UITextViewDelegate {
     var blockProgress : Int = 0
     var instructionsState : InstructionsTextState?
     
-    let logFileMaker = LogFileMaker(fileName: "test")
+    var logFileMaker : LogFileMaker?
+    var fileName : String?
 
     @IBOutlet weak var instructionsTextView: InstructionsTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        LogFileMaker = LogFileMaker(fileName: fileName!)
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped))
         instructionsTextView.addGestureRecognizer(tapRecognizer)

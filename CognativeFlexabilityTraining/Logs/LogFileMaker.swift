@@ -44,6 +44,7 @@ class LogFileMaker {
             
             //writing
             do {
+                print("writing to \(fileURL)")
                 try logString.write(to: fileURL, atomically: false, encoding: .utf8)
             }
             catch {

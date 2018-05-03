@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF056EDC209AACCD000F65D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF056EDB209AACCD000F65D6 /* LoginViewController.swift */; };
 		BF6CB0FA2069FCB500FBCF39 /* Goodbye.html in Resources */ = {isa = PBXBuildFile; fileRef = BF6CB0F92069FCB500FBCF39 /* Goodbye.html */; };
 		BF6CB0FD206A103F00FBCF39 /* LogFileMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CB0FC206A103F00FBCF39 /* LogFileMaker.swift */; };
 		BF6CB0FF206A10B000FBCF39 /* TrialData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CB0FE206A10B000FBCF39 /* TrialData.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF056EDB209AACCD000F65D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF6CB0F92069FCB500FBCF39 /* Goodbye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Goodbye.html; sourceTree = "<group>"; };
 		BF6CB0FC206A103F00FBCF39 /* LogFileMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogFileMaker.swift; sourceTree = "<group>"; };
 		BF6CB0FE206A10B000FBCF39 /* TrialData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrialData.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF056EDD209AACD6000F65D6 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				BF056EDB209AACCD000F65D6 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		BF6CB0FB206A101600FBCF39 /* Logs */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +180,7 @@
 		BF884DFB205A2044002262DB /* CognativeFlexabilityTraining */ = {
 			isa = PBXGroup;
 			children = (
+				BF056EDD209AACD6000F65D6 /* Login */,
 				BF6CB0FB206A101600FBCF39 /* Logs */,
 				BF71383C205F6D48008D0108 /* Extensions */,
 				BF71321E205B8BDF003D89D1 /* UI */,
@@ -178,7 +189,6 @@
 				BF884E0F205A20A5002262DB /* Trial */,
 				BF884E0E205A2087002262DB /* Block */,
 				BF884DFC205A2044002262DB /* AppDelegate.swift */,
-				BF884DFE205A2044002262DB /* InstructionViewController.swift */,
 				BF884E00205A2044002262DB /* Main.storyboard */,
 				BF884E03205A2044002262DB /* Assets.xcassets */,
 				BF884E05205A2044002262DB /* LaunchScreen.storyboard */,
@@ -209,6 +219,7 @@
 		BF884E16205A2492002262DB /* Instructions */ = {
 			isa = PBXGroup;
 			children = (
+				BF884DFE205A2044002262DB /* InstructionViewController.swift */,
 				BF91B9152068834100C86DED /* HTMLs */,
 				BF884E17205A24B0002262DB /* InstructionsTextView.swift */,
 				BF91B913206881C600C86DED /* InstructionsTextState.swift */,
@@ -313,6 +324,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF056EDC209AACCD000F65D6 /* LoginViewController.swift in Sources */,
 				BF884DFF205A2044002262DB /* InstructionViewController.swift in Sources */,
 				BF91B914206881C600C86DED /* InstructionsTextState.swift in Sources */,
 				BF6CB0FF206A10B000FBCF39 /* TrialData.swift in Sources */,
@@ -471,7 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2EJWFP69GW;
+				DEVELOPMENT_TEAM = TNE2QNX34B;
 				INFOPLIST_FILE = CognativeFlexabilityTraining/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.daisychain.CognativeFlexabilityTraining;
@@ -486,7 +498,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2EJWFP69GW;
+				DEVELOPMENT_TEAM = TNE2QNX34B;
 				INFOPLIST_FILE = CognativeFlexabilityTraining/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.daisychain.CognativeFlexabilityTraining;
