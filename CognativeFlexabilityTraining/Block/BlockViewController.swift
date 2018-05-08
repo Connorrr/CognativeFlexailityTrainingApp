@@ -184,10 +184,24 @@ class BlockViewController: UIViewController {
     func saveBlockData () {
 
         print("put in array")
-        let logData = blockData.map{$0.propertyListRepresentation}      //  Return the property list compliant version of the struct
-        print("put in archiver")
-        UserDefaults.standard.set(logData, forKey: "BlockData")
+        let currentLogData = blockData.map{$0.propertyListRepresentation}      //  Return the property list compliant version of the struct
+        print("appending data")
+        let fullLogs = getAppendedLogData(currentLogData: currentLogData)
+        UserDefaults.standard.set(fullLogs, forKey: "BlockData")
         print("put in defaults")
+    }
+    
+    func getAppendedLogData (currentLogData: [[String : Any]]) -> [[String : Any]]? {
+        guard var propertyListLogs = UserDefaults.standard.object(forKey: "BlockData") as? [[String:Any]] else {
+            print("'BlockData' not found in UserDefaults")
+            return nil
+        }
+        
+        for data in currentLogData {
+            propertyListLogs.append(data)
+        }
+        
+        return propertyListLogs
     }
     
     func setButtonVisibility(isHidden: Bool) {

@@ -11,13 +11,16 @@ import AVFoundation
 
 class ViewController: UIViewController, UITextViewDelegate {
     
-    let experimentStructure : [BlockType] = [.practice,.practice,.single]//,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed] TODO: Remove this before I finish
+    let experimentStructure : [BlockType] = [.practice,.practice,.single]//,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
     
     var blockProgress : Int = 0
     var instructionsState : InstructionsTextState?
     
     var logFileMaker : LogFileMaker?
     var fileName : String?
+    
+    var testTimer : Timer?
+    var isTest : Bool = true    //  Will automatically run through if true TODO:  Make sure this is false at handover
 
     @IBOutlet weak var instructionsTextView: InstructionsTextView!
     
@@ -36,16 +39,38 @@ class ViewController: UIViewController, UITextViewDelegate {
         switch instructionsState! {
         case .openingText:
             setText("Opening")
+            setTestTimer(isFinished: false)
         case .breakText:
             setText("Break")
+            setTestTimer(isFinished: false)
         case .practiceEnd:
             setText("PracticeEnd")
+            setTestTimer(isFinished: false)
         case .goodbyeText:
             setText("Goodbye")
             if !logFileMaker!.saveData() {
                 print("Error:  Unable to save the log file data")
             }
+            setTestTimer(isFinished: true)
         }
+    }
+    
+    func setTestTimer(isFinished: Bool) {
+        if isTest {
+            if isFinished {
+                testTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(testTimer) in self.testTimerFunctionToLogin()})
+            } else {
+                testTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(testTimer) in self.testTimerFunctionToBlock()})
+            }
+        }
+    }
+    
+    func testTimerFunctionToBlock () {
+        performSegue(withIdentifier: "presentBlock", sender: nil)
+    }
+    
+    func testTimerFunctionToLogin () {
+        performSegue(withIdentifier: "instructionsToLogin", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {
