@@ -11,7 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController, UITextViewDelegate {
     
-    let experimentStructure : [BlockType] = [.practice,.practice,.single]//,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
+    let experimentStructure : [BlockType] = [.practice,.practice,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
     
     var blockProgress : Int = 0
     var instructionsState : InstructionsTextState?
@@ -58,7 +58,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     func setTestTimer(isFinished: Bool) {
         if isTest {
             if isFinished {
-                testTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(testTimer) in self.testTimerFunctionToLogin()})
+                testTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: {(testTimer) in self.testTimerFunctionToLogin()})
             } else {
                 testTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(testTimer) in self.testTimerFunctionToBlock()})
             }
@@ -100,7 +100,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "presentBlock" {
             if let blockViewController = segue.destination as? BlockViewController {
-                blockViewController.blockType = experimentStructure[blockProgress]  // TODO:  Change this for the final page
+                blockViewController.blockType = experimentStructure[blockProgress]
                 blockViewController.blockProgress = blockProgress
             }
         }

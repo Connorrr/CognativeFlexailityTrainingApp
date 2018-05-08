@@ -30,6 +30,7 @@
 		BF71383E205F6D74008D0108 /* Bool+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF71383D205F6D74008D0108 /* Bool+Random.swift */; };
 		BF80566C20A12A2200CC4446 /* Opening2.html in Resources */ = {isa = PBXBuildFile; fileRef = BF80566B20A12A2200CC4446 /* Opening2.html */; };
 		BF80566E20A12C9600CC4446 /* PracticeEnd.html in Resources */ = {isa = PBXBuildFile; fileRef = BF80566D20A12C9600CC4446 /* PracticeEnd.html */; };
+		BF80567120A2661700CC4446 /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BF80567020A2661700CC4446 /* buzzer.mp3 */; };
 		BF884DFD205A2044002262DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884DFC205A2044002262DB /* AppDelegate.swift */; };
 		BF884DFF205A2044002262DB /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884DFE205A2044002262DB /* InstructionViewController.swift */; };
 		BF884E02205A2044002262DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF884E00205A2044002262DB /* Main.storyboard */; };
@@ -72,6 +73,7 @@
 		BF71383D205F6D74008D0108 /* Bool+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Random.swift"; sourceTree = "<group>"; };
 		BF80566B20A12A2200CC4446 /* Opening2.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Opening2.html; sourceTree = "<group>"; };
 		BF80566D20A12C9600CC4446 /* PracticeEnd.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = PracticeEnd.html; sourceTree = "<group>"; };
+		BF80567020A2661700CC4446 /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
 		BF884DF9205A2044002262DB /* CognativeFlexabilityTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognativeFlexabilityTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF884DFC205A2044002262DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF884DFE205A2044002262DB /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		BF80566F20A2660000CC4446 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				BF80567020A2661700CC4446 /* buzzer.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		BF884DF0205A2044002262DB = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +204,7 @@
 		BF884DFB205A2044002262DB /* CognativeFlexabilityTraining */ = {
 			isa = PBXGroup;
 			children = (
+				BF80566F20A2660000CC4446 /* Sounds */,
 				BF056EDE209ADEED000F65D6 /* Globals */,
 				BF056EDD209AACD6000F65D6 /* Login */,
 				BF6CB0FB206A101600FBCF39 /* Logs */,
@@ -327,6 +338,7 @@
 				BF713225205B8C03003D89D1 /* EvenButton.png in Resources */,
 				BF884E04205A2044002262DB /* Assets.xcassets in Resources */,
 				BF713215205B7A02003D89D1 /* 2.png in Resources */,
+				BF80567120A2661700CC4446 /* buzzer.mp3 in Resources */,
 				BF713226205B8C03003D89D1 /* OddButton.png in Resources */,
 				BF713219205B7A02003D89D1 /* 4.png in Resources */,
 				BF884E02205A2044002262DB /* Main.storyboard in Resources */,

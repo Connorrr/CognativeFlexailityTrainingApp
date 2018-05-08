@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import AVFoundation
 
 class BlockViewController: UIViewController {
     
@@ -33,6 +34,7 @@ class BlockViewController: UIViewController {
     var trialData = TrialData()
     var trialTime : Double?
     var trialStartTime : Date?
+    var audioPlayer = AVAudioPlayer()
     
     
     override func viewDidLoad() {
@@ -139,13 +141,14 @@ class BlockViewController: UIViewController {
         if self.blockType! == .practice {
             self.responseTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (responseTimer) in self.displayResponse() })
         }else{
-            self.blankTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (blankTimer) in self.displayBlank() })
+            self.blankTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (blankTimer) in self.displayBlank() })     //   Skip the response screen if it is not a practice
         }
         self.trialStartTime = Date()
     }
     
     //  For practice trials only
     func displayResponse () {
+        if trialData.corr != 1 { playBuzzer() } //  Play buzzer if it was incorrect
         self.fixationCross.isHidden = false
         self.stimImage.isHidden = true
         self.boarderView.isHidden = true
@@ -161,6 +164,9 @@ class BlockViewController: UIViewController {
     
     func displayBlank() {
         getResponseTime()
+        if blockType! != .practice {                //  Buzzer will be played in displayResponse() if it is a practice trial
+            if trialData.corr != 1 { playBuzzer() } //  Play buzzer if it was incorrect
+        }
         self.fixationCross.textColor = .black
         self.fixationCross.text = "+"
         self.fixationCross.isHidden = true
@@ -171,7 +177,7 @@ class BlockViewController: UIViewController {
         let startTime = defaults.object(forKey: "startTime") as! Date
         trialData.time = Date(timeIntervalSinceNow: 0.25).timeIntervalSince(startTime).description
         blockData.append(trialData)
-        if (trialIndex < 4) {//block!.trials!.count) {  TODO:  remove this before finish
+        if (currentTrial < block!.trials!.count) {
             self.currentTrial = self.currentTrial + 1
             repeatTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(repeatTimer) in self.executeBlock()})
         }else{      //MARK:  This is the end of the trials
@@ -187,7 +193,9 @@ class BlockViewController: UIViewController {
         let currentLogData = blockData.map{$0.propertyListRepresentation}      //  Return the property list compliant version of the struct
         print("appending data")
         let fullLogs = getAppendedLogData(currentLogData: currentLogData)
-        UserDefaults.standard.set(fullLogs, forKey: "BlockData")
+        if fullLogs == nil { UserDefaults.standard.set(currentLogData, forKey: "BlockData") } else {
+            UserDefaults.standard.set(fullLogs, forKey: "BlockData")
+        }
         print("put in defaults")
     }
     
@@ -261,6 +269,18 @@ class BlockViewController: UIViewController {
         case .below:
             trialData.trialCondition = "Less"
         }
+    }
+    
+    func playBuzzer(){
+        let buzzerSound = URL(fileURLWithPath: Bundle.main.path(forResource: "buzzer", ofType: "mp3")!)
+        
+        do {
+            try audioPlayer = AVAudioPlayer(contentsOf: buzzerSound)
+        }catch{
+            print("AudioPlayer failed to init with URL:  \(buzzerSound)")
+        }
+        audioPlayer.prepareToPlay()
+        audioPlayer.play()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
