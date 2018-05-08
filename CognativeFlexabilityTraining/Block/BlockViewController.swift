@@ -73,28 +73,38 @@ class BlockViewController: UIViewController {
     @IBAction func greaterThanButtonPressed(_ sender: UIButton) {
         trialData.response = "Greater"
         checkCorr(response: .above)
-        blankTimer!.fire()
+        forceProgress()
     }
     
     @IBAction func lessThanButtonPressed(_ sender: UIButton) {
         trialData.response = "Less"
         checkCorr(response: .below)
-        blankTimer!.fire()
+        forceProgress()
     }
     
     @IBAction func evenButtonPressed(_ sender: UIButton) {
         trialData.response = "Even"
         checkCorr(response: .even)
-        blankTimer!.fire()
+        forceProgress()
     }
     
     @IBAction func oddButtonPressed(_ sender: UIButton) {
         trialData.response = "Odd"
         checkCorr(response: .odd)
-        blankTimer!.fire()
+        forceProgress()
+    }
+    
+    //  Called after the response button is pressed
+    func forceProgress () {
+        if blockType! == .practice {
+            responseTimer!.fire()
+        } else {
+            blankTimer!.fire()
+        }
     }
     
     var trialTimer : Timer?
+    var responseTimer : Timer?
     var blankTimer : Timer?
     var repeatTimer : Timer?
     
@@ -126,12 +136,33 @@ class BlockViewController: UIViewController {
         self.fixationCross.isHidden = true
         self.stimImage.isHidden = false
         self.setButtonVisibility(isHidden: false)
-        self.blankTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (blankTimer) in self.displayBlank() })
-        trialStartTime = Date()
+        if self.blockType! == .practice {
+            self.responseTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (responseTimer) in self.displayResponse() })
+        }else{
+            self.blankTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (blankTimer) in self.displayBlank() })
+        }
+        self.trialStartTime = Date()
+    }
+    
+    //  For practice trials only
+    func displayResponse () {
+        self.fixationCross.isHidden = false
+        self.stimImage.isHidden = true
+        self.boarderView.isHidden = true
+        if self.trialData.corr == 1 {
+            self.fixationCross.textColor = .green
+            self.fixationCross.text = "Correct"
+        } else {
+            self.fixationCross.textColor = .red
+            self.fixationCross.text = "Incorrect"
+        }
+        self.blankTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: false, block: { (blankTimer) in self.displayBlank() })
     }
     
     func displayBlank() {
         getResponseTime()
+        self.fixationCross.textColor = .black
+        self.fixationCross.text = "+"
         self.fixationCross.isHidden = true
         self.stimImage.isHidden = true
         self.boarderView.isHidden = true
@@ -222,7 +253,8 @@ class BlockViewController: UIViewController {
         if segue.identifier == "returnToInstructions" {
             print("preparing for segue")
             if let viewController = segue.destination as? ViewController {
-                if blockProgress! + 1 > 2 {
+                if blockProgress! == 1 {
+                    print("You are at the end of the practices")
                     viewController.instructionsState = .practiceEnd
                 } else if blockProgress! + 1 < viewController.experimentStructure.count {
                     viewController.instructionsState = .breakText

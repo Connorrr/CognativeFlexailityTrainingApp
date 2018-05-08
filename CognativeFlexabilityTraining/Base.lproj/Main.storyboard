@@ -127,10 +127,10 @@
                                 </constraints>
                             </imageView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUf-oY-C62" userLabel="FixationCross">
-                                <rect key="frame" x="309" y="447" width="150" height="134"/>
+                                <rect key="frame" x="84" y="447" width="600" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="134" id="KLL-V9-DoM"/>
-                                    <constraint firstAttribute="width" constant="150" id="vx3-jW-AdA"/>
+                                    <constraint firstAttribute="width" constant="600" id="vx3-jW-AdA"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="118"/>
                                 <nil key="textColor"/>
@@ -236,6 +236,6 @@
         <image name="OddButton.png" width="417" height="417"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oVc-5C-Hki"/>
+        <segue reference="Bbe-oS-AWF"/>
     </inferredMetricsTieBreakers>
 </document>

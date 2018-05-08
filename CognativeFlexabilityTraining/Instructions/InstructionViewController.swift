@@ -11,7 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController, UITextViewDelegate {
     
-    let experimentStructure : [BlockType] = [.practice,.practice]//,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed] TODO: Remove this before I finish
+    let experimentStructure : [BlockType] = [.practice,.practice,.single]//,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed] TODO: Remove this before I finish
     
     var blockProgress : Int = 0
     var instructionsState : InstructionsTextState?
@@ -60,11 +60,13 @@ class ViewController: UIViewController, UITextViewDelegate {
         return dateFormatter.string(from: date)
     }
     
+    var readyToBeginPractice = false
     @objc func viewTapped() {
         if instructionsState! == .goodbyeText {
             performSegue(withIdentifier: "instructionsToLogin", sender: nil)
-        } else if instructionsState! == .openingText {
+        } else if instructionsState! == .openingText && !readyToBeginPractice {
                 setText("Opening2")
+            readyToBeginPractice = true
         } else {
             performSegue(withIdentifier: "presentBlock", sender: nil)
         }
