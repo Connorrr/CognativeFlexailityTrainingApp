@@ -34,7 +34,7 @@ class LogFileMaker {
         if !retrieveBlockData() { return false }
         
         let logString = convertLogFileDataToCSVString()
-        print(logString)
+        //print(logString)
         
         let file = "\(fName).csv" //this is the file. we will write to and read from it
         

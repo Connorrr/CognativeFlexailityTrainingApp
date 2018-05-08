@@ -153,7 +153,6 @@ class BlockViewController: UIViewController {
     func saveBlockData () {
 
         print("put in array")
-        dump(blockData)
         let logData = blockData.map{$0.propertyListRepresentation}      //  Return the property list compliant version of the struct
         print("put in archiver")
         UserDefaults.standard.set(logData, forKey: "BlockData")
@@ -223,7 +222,9 @@ class BlockViewController: UIViewController {
         if segue.identifier == "returnToInstructions" {
             print("preparing for segue")
             if let viewController = segue.destination as? ViewController {
-                if blockProgress! + 1 < viewController.experimentStructure.count {
+                if blockProgress! + 1 > 2 {
+                    viewController.instructionsState = .practiceEnd
+                } else if blockProgress! + 1 < viewController.experimentStructure.count {
                     viewController.instructionsState = .breakText
                 }else{
                     viewController.instructionsState = .goodbyeText

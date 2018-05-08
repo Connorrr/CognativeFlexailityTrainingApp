@@ -28,6 +28,8 @@
 		BF713227205B8C03003D89D1 /* LessThanButton.png in Resources */ = {isa = PBXBuildFile; fileRef = BF713223205B8C03003D89D1 /* LessThanButton.png */; };
 		BF71383B205F42A9008D0108 /* ResponseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF71383A205F42A9008D0108 /* ResponseButton.swift */; };
 		BF71383E205F6D74008D0108 /* Bool+Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF71383D205F6D74008D0108 /* Bool+Random.swift */; };
+		BF80566C20A12A2200CC4446 /* Opening2.html in Resources */ = {isa = PBXBuildFile; fileRef = BF80566B20A12A2200CC4446 /* Opening2.html */; };
+		BF80566E20A12C9600CC4446 /* PracticeEnd.html in Resources */ = {isa = PBXBuildFile; fileRef = BF80566D20A12C9600CC4446 /* PracticeEnd.html */; };
 		BF884DFD205A2044002262DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884DFC205A2044002262DB /* AppDelegate.swift */; };
 		BF884DFF205A2044002262DB /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF884DFE205A2044002262DB /* InstructionViewController.swift */; };
 		BF884E02205A2044002262DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF884E00205A2044002262DB /* Main.storyboard */; };
@@ -68,6 +70,8 @@
 		BF713223205B8C03003D89D1 /* LessThanButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LessThanButton.png; path = Buttons/LessThanButton.png; sourceTree = SOURCE_ROOT; };
 		BF71383A205F42A9008D0108 /* ResponseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseButton.swift; sourceTree = "<group>"; };
 		BF71383D205F6D74008D0108 /* Bool+Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bool+Random.swift"; sourceTree = "<group>"; };
+		BF80566B20A12A2200CC4446 /* Opening2.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Opening2.html; sourceTree = "<group>"; };
+		BF80566D20A12C9600CC4446 /* PracticeEnd.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = PracticeEnd.html; sourceTree = "<group>"; };
 		BF884DF9205A2044002262DB /* CognativeFlexabilityTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CognativeFlexabilityTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF884DFC205A2044002262DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF884DFE205A2044002262DB /* InstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 				BF91B91B20689E1F00C86DED /* Break.html */,
 				BF91B91A20689E1E00C86DED /* Opening.html */,
 				BF6CB0F92069FCB500FBCF39 /* Goodbye.html */,
+				BF80566B20A12A2200CC4446 /* Opening2.html */,
+				BF80566D20A12C9600CC4446 /* PracticeEnd.html */,
 			);
 			path = HTMLs;
 			sourceTree = "<group>";
@@ -308,8 +314,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF71321C205B7A02003D89D1 /* 9.png in Resources */,
+				BF80566E20A12C9600CC4446 /* PracticeEnd.html in Resources */,
 				BF71321B205B7A02003D89D1 /* 8.png in Resources */,
 				BF6CB0FA2069FCB500FBCF39 /* Goodbye.html in Resources */,
+				BF80566C20A12A2200CC4446 /* Opening2.html in Resources */,
 				BF71321A205B7A02003D89D1 /* 7.png in Resources */,
 				BF713217205B7A02003D89D1 /* 6.png in Resources */,
 				BF884E07205A2044002262DB /* LaunchScreen.storyboard in Resources */,

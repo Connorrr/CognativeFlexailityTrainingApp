@@ -38,6 +38,8 @@ class ViewController: UIViewController, UITextViewDelegate {
             setText("Opening")
         case .breakText:
             setText("Break")
+        case .practiceEnd:
+            setText("PracticeEnd")
         case .goodbyeText:
             setText("Goodbye")
             if !logFileMaker!.saveData() {
@@ -61,7 +63,9 @@ class ViewController: UIViewController, UITextViewDelegate {
     @objc func viewTapped() {
         if instructionsState! == .goodbyeText {
             performSegue(withIdentifier: "instructionsToLogin", sender: nil)
-        }else{
+        } else if instructionsState! == .openingText {
+                setText("Opening2")
+        } else {
             performSegue(withIdentifier: "presentBlock", sender: nil)
         }
     }
