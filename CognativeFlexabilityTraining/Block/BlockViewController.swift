@@ -17,10 +17,10 @@ class BlockViewController: UIViewController {
     @IBOutlet weak var fixationCross: UILabel!
     @IBOutlet weak var boarderView: UIView!
     
-    @IBOutlet weak var greaterThanButton: ResponseButton!
-    @IBOutlet weak var lessThanButton: ResponseButton!
-    @IBOutlet weak var evenButton: ResponseButton!
-    @IBOutlet weak var oddButton: ResponseButton!
+    @IBOutlet weak var vegeButton: ResponseButton!
+    @IBOutlet weak var fruitButton: ResponseButton!
+    @IBOutlet weak var redButton: ResponseButton!
+    @IBOutlet weak var greenButton: ResponseButton!
     
     var blockType : BlockType?
     var block : Block?
@@ -47,15 +47,15 @@ class BlockViewController: UIViewController {
         if blockType != nil {
             if blockType == .mixed {
                 if random.randomBool() {
-                    block = Block(startingTrialCondition: .even, numerOfSwitches: 4)
+                    block = Block(startingTrialCondition: .red, numerOfSwitches: 4)
                 } else {
-                    block = Block(startingTrialCondition: .above, numerOfSwitches: 4)
+                    block = Block(startingTrialCondition: .vege, numerOfSwitches: 4)
                 }
             }else{
                 if random.randomBool() {
-                    block = Block(trialCondition: .even)
+                    block = Block(trialCondition: .red)
                 } else {
-                    block = Block(trialCondition: .above)
+                    block = Block(trialCondition: .vege)
                 }
             }
             
@@ -72,27 +72,27 @@ class BlockViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func greaterThanButtonPressed(_ sender: UIButton) {
-        trialData.response = "Greater"
-        checkCorr(response: .above)
+    @IBAction func vegeButtonPressed(_ sender: UIButton) {
+        trialData.response = "vege"
+        checkCorr(response: .vege)
         forceProgress()
     }
     
-    @IBAction func lessThanButtonPressed(_ sender: UIButton) {
-        trialData.response = "Less"
-        checkCorr(response: .below)
+    @IBAction func fruitButtonPressed(_ sender: UIButton) {
+        trialData.response = "fruit"
+        checkCorr(response: .fruit)
         forceProgress()
     }
     
-    @IBAction func evenButtonPressed(_ sender: UIButton) {
-        trialData.response = "Even"
-        checkCorr(response: .even)
+    @IBAction func redButtonPressed(_ sender: UIButton) {
+        trialData.response = "red"
+        checkCorr(response: .red)
         forceProgress()
     }
     
-    @IBAction func oddButtonPressed(_ sender: UIButton) {
-        trialData.response = "Odd"
-        checkCorr(response: .odd)
+    @IBAction func greenButtonPressed(_ sender: UIButton) {
+        trialData.response = "green"
+        checkCorr(response: .green)
         forceProgress()
     }
     
@@ -213,10 +213,10 @@ class BlockViewController: UIViewController {
     }
     
     func setButtonVisibility(isHidden: Bool) {
-        self.greaterThanButton.isHidden = isHidden
-        self.lessThanButton.isHidden = isHidden
-        self.evenButton.isHidden = isHidden
-        self.oddButton.isHidden = isHidden
+        self.vegeButton.isHidden = isHidden
+        self.fruitButton.isHidden = isHidden
+        self.redButton.isHidden = isHidden
+        self.greenButton.isHidden = isHidden
     }
     
     func getResponseTime() {
@@ -260,14 +260,14 @@ class BlockViewController: UIViewController {
         trialData.stim = block!.trials![trialIndex].stimName!
         
         switch block!.trials![trialIndex].condition! {
-        case .even:
-            trialData.trialCondition = "even"
-        case .odd:
-            trialData.trialCondition = "odd"
-        case .above:
-            trialData.trialCondition = "Greater"
-        case .below:
-            trialData.trialCondition = "Less"
+        case .red:
+            trialData.trialCondition = "red"
+        case .green:
+            trialData.trialCondition = "green"
+        case .vege:
+            trialData.trialCondition = "vege"
+        case .fruit:
+            trialData.trialCondition = "fruit"
         }
     }
     
@@ -275,7 +275,7 @@ class BlockViewController: UIViewController {
         let buzzerSound = URL(fileURLWithPath: Bundle.main.path(forResource: "buzzer", ofType: "mp3")!)
         
         do {
-            try audioPlayer = AVAudioPlayer(contentsOf: buzzerSound)
+            try self.audioPlayer = AVAudioPlayer(contentsOf: buzzerSound)
         }catch{
             print("AudioPlayer failed to init with URL:  \(buzzerSound)")
         }

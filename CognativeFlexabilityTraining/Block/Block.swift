@@ -47,7 +47,7 @@ class Block {
         
         var trial = TrialInfo()
         var isevenOdd = true
-        if (startTrialCondition == .above || startTrialCondition == .below) {
+        if (startTrialCondition == .vege || startTrialCondition == .fruit) {
             isevenOdd = false
         }
 
@@ -66,13 +66,13 @@ class Block {
                 trial.question = "Is this number Even or Odd?"
                 trial.isAboveBelow = false
                 if isevenOdd.randomBool() {
-                    let data = img.getEvenStimulus()
-                    trial.condition = .even
+                    let data = img.getRedStimulus()
+                    trial.condition = .red
                     trial.stim = data.0
                     trial.stimName = data.1?.description
                 }else{
-                    let data = img.getOddStimulus()
-                    trial.condition = .odd
+                    let data = img.getGreenStimulus()
+                    trial.condition = .green
                     trial.stim = data.0
                     trial.stimName = data.1?.description
                 }
@@ -80,13 +80,13 @@ class Block {
                 trial.question = "Is this number Above or Below 5?"
                 trial.isAboveBelow = true
                 if isevenOdd.randomBool() {
-                    let data = img.getAboveStimulus()
-                    trial.condition = .above
+                    let data = img.getVegeStimulus()
+                    trial.condition = .vege
                     trial.stim = data.0
                     trial.stimName = data.1?.description
                 }else{
-                    let data = img.getBelowStimulus()
-                    trial.condition = .below
+                    let data = img.getFruitStimulus()
+                    trial.condition = .fruit
                     trial.stim = data.0
                     trial.stimName = data.1?.description
                 }

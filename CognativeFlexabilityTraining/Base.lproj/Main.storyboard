@@ -148,39 +148,39 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m4I-l8-ad5" userLabel="ButtonStackView">
                                 <rect key="frame" x="50" y="772" width="668" height="202"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISt-hX-lUc" userLabel="GreaterThanButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISt-hX-lUc" userLabel="VegeButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="152" height="202"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <state key="normal" title="Greater Than" image="GreaterThanButton.png"/>
+                                        <state key="normal" title="Greater Than" image="VegeButton.png"/>
                                         <connections>
-                                            <action selector="greaterThanButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="UDh-ih-DNt"/>
+                                            <action selector="vegeButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="o3b-Ya-AC2"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RR1-JN-C05" userLabel="LessThanButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RR1-JN-C05" userLabel="FruitButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
                                         <rect key="frame" x="172" y="0.0" width="152" height="202"/>
-                                        <state key="normal" title="Less Than" image="LessThanButton.png">
+                                        <state key="normal" title="Less Than" image="FruitButton.png">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="lessThanButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="cce-xF-oTx"/>
+                                            <action selector="fruitButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="lhp-2W-cuv"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQ0-d3-tlA" userLabel="EvenButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQ0-d3-tlA" userLabel="RedButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
                                         <rect key="frame" x="344" y="0.0" width="152" height="202"/>
-                                        <state key="normal" title="Even" image="EvenButton.png">
+                                        <state key="normal" title="Even" image="RedButton.png">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="evenButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="Kwp-gX-7db"/>
+                                            <action selector="redButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="kdB-FF-jLV"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTH-RD-j9R" userLabel="OddButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTH-RD-j9R" userLabel="GreenButton" customClass="ResponseButton" customModule="CognativeFlexabilityTraining" customModuleProvider="target">
                                         <rect key="frame" x="516" y="0.0" width="152" height="202"/>
-                                        <state key="normal" title="Odd" image="OddButton.png">
+                                        <state key="normal" title="Odd" image="GreenButton.png">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="oddButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="t1j-df-f2a"/>
+                                            <action selector="greenButtonPressed:" destination="3uN-N6-O0y" eventType="touchUpInside" id="EkC-bZ-BNp"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -213,13 +213,13 @@
                     </view>
                     <connections>
                         <outlet property="boarderView" destination="NEx-hh-i0n" id="vtn-Zi-jCd"/>
-                        <outlet property="evenButton" destination="lQ0-d3-tlA" id="VkK-uM-MuP"/>
                         <outlet property="fixationCross" destination="QUf-oY-C62" id="st5-ji-RzL"/>
-                        <outlet property="greaterThanButton" destination="ISt-hX-lUc" id="XTC-Q7-2b7"/>
-                        <outlet property="lessThanButton" destination="RR1-JN-C05" id="ytR-j6-eOJ"/>
-                        <outlet property="oddButton" destination="DTH-RD-j9R" id="m8I-3H-amF"/>
+                        <outlet property="fruitButton" destination="RR1-JN-C05" id="4dV-4T-W89"/>
+                        <outlet property="greenButton" destination="DTH-RD-j9R" id="0Ek-WI-hdw"/>
                         <outlet property="questionLabel" destination="oxx-Ow-HGg" id="qNX-ss-XsI"/>
+                        <outlet property="redButton" destination="lQ0-d3-tlA" id="DMP-Sd-qxQ"/>
                         <outlet property="stimImage" destination="ot3-dr-gSu" id="X2T-I5-X7W"/>
+                        <outlet property="vegeButton" destination="ISt-hX-lUc" id="AT1-Q7-OYr"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="returnToInstructions" id="Bbe-oS-AWF"/>
                     </connections>
                 </viewController>
@@ -230,10 +230,10 @@
     </scenes>
     <resources>
         <image name="1.png" width="300" height="300"/>
-        <image name="EvenButton.png" width="417" height="417"/>
-        <image name="GreaterThanButton.png" width="417" height="417"/>
-        <image name="LessThanButton.png" width="417" height="417"/>
-        <image name="OddButton.png" width="417" height="417"/>
+        <image name="FruitButton.png" width="417" height="417"/>
+        <image name="GreenButton.png" width="417" height="417"/>
+        <image name="RedButton.png" width="417" height="417"/>
+        <image name="VegeButton.png" width="417" height="417"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bbe-oS-AWF"/>

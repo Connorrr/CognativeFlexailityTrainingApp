@@ -8,10 +8,10 @@
 
 //  Trial Conditions
 enum TrialCondition {
-    case even
-    case odd
-    case above
-    case below
+    case red
+    case green
+    case vege
+    case fruit
 }
 
 
