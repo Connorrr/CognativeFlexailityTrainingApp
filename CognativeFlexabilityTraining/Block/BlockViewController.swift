@@ -12,7 +12,7 @@ import AVFoundation
 
 class BlockViewController: UIViewController {
     
-    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var feedbackLabel: UILabel!
     @IBOutlet weak var stimImage: UIImageView!
     @IBOutlet weak var fixationCross: UILabel!
     @IBOutlet weak var boarderView: UIView!
@@ -62,7 +62,7 @@ class BlockViewController: UIViewController {
             executeBlock()
             
         }else{
-            questionLabel.text = "ERROR: BlockViewController: Block Type missing"
+            feedbackLabel.text = "ERROR: BlockViewController: Block Type missing"
         }
         // Do any additional setup after loading the view.
     }
@@ -134,45 +134,33 @@ class BlockViewController: UIViewController {
     }
     
     func displayTrial() {
-        self.setBoarder(isAboveBelow: block!.trials![trialIndex].isAboveBelow!)
+        self.setBoarder(isAboveBelow: block!.trials![trialIndex].isVegeFruit!)
         self.fixationCross.isHidden = true
         self.stimImage.isHidden = false
         self.setButtonVisibility(isHidden: false)
-        if self.blockType! == .practice {
-            self.responseTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (responseTimer) in self.displayResponse() })
-        }else{
-            self.blankTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (blankTimer) in self.displayBlank() })     //   Skip the response screen if it is not a practice
-        }
+        self.responseTimer = Timer.scheduledTimer(withTimeInterval: 5, repeats: false, block: { (responseTimer) in self.displayResponse() })
         self.trialStartTime = Date()
     }
     
-    //  For practice trials only
     func displayResponse () {
-        if trialData.corr != 1 { playBuzzer() } //  Play buzzer if it was incorrect
-        self.fixationCross.isHidden = false
+        self.fixationCross.isHidden = true
         self.stimImage.isHidden = true
         self.boarderView.isHidden = true
-        if self.trialData.corr == 1 {
-            self.fixationCross.textColor = .green
-            self.fixationCross.text = "Correct"
-        } else {
-            self.fixationCross.textColor = .red
-            self.fixationCross.text = "Incorrect"
+        self.setButtonVisibility(isHidden: true)
+        if self.trialData.corr != 1 {
+            self.feedbackLabel.isHidden = false
         }
-        self.blankTimer = Timer.scheduledTimer(withTimeInterval: 1.2, repeats: false, block: { (blankTimer) in self.displayBlank() })
+        self.blankTimer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false, block: { (blankTimer) in self.displayBlank() })
     }
     
     func displayBlank() {
         getResponseTime()
-        if blockType! != .practice {                //  Buzzer will be played in displayResponse() if it is a practice trial
-            if trialData.corr != 1 { playBuzzer() } //  Play buzzer if it was incorrect
-        }
+        self.feedbackLabel.isHidden = true
         self.fixationCross.textColor = .black
         self.fixationCross.text = "+"
         self.fixationCross.isHidden = true
         self.stimImage.isHidden = true
         self.boarderView.isHidden = true
-        self.setButtonVisibility(isHidden: true)
         let defaults = UserDefaults.standard
         let startTime = defaults.object(forKey: "startTime") as! Date
         trialData.time = Date(timeIntervalSinceNow: 0.25).timeIntervalSince(startTime).description
@@ -271,16 +259,14 @@ class BlockViewController: UIViewController {
         }
     }
     
-    func playBuzzer(){
-        let buzzerSound = URL(fileURLWithPath: Bundle.main.path(forResource: "buzzer", ofType: "mp3")!)
+    func showCross(){
+        feedbackLabel.isHidden = false
         
-        do {
-            try self.audioPlayer = AVAudioPlayer(contentsOf: buzzerSound)
-        }catch{
-            print("AudioPlayer failed to init with URL:  \(buzzerSound)")
-        }
-        audioPlayer.prepareToPlay()
-        audioPlayer.play()
+        let crossTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(crossTimer) in self.removeCross()})
+    }
+    
+    func removeCross(){
+        feedbackLabel.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

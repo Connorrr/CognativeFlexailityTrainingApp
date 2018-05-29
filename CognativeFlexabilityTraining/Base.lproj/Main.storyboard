@@ -136,13 +136,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxx-Ow-HGg" userLabel="QuestionLabel">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oxx-Ow-HGg" userLabel="FeedbackLabel">
                                 <rect key="frame" x="50" y="60" width="668" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="c0B-da-qzZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="151"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="m4I-l8-ad5" userLabel="ButtonStackView">
@@ -213,10 +213,10 @@
                     </view>
                     <connections>
                         <outlet property="boarderView" destination="NEx-hh-i0n" id="vtn-Zi-jCd"/>
+                        <outlet property="feedbackLabel" destination="oxx-Ow-HGg" id="LS0-fb-Iii"/>
                         <outlet property="fixationCross" destination="QUf-oY-C62" id="st5-ji-RzL"/>
                         <outlet property="fruitButton" destination="RR1-JN-C05" id="4dV-4T-W89"/>
                         <outlet property="greenButton" destination="DTH-RD-j9R" id="0Ek-WI-hdw"/>
-                        <outlet property="questionLabel" destination="oxx-Ow-HGg" id="qNX-ss-XsI"/>
                         <outlet property="redButton" destination="lQ0-d3-tlA" id="DMP-Sd-qxQ"/>
                         <outlet property="stimImage" destination="ot3-dr-gSu" id="X2T-I5-X7W"/>
                         <outlet property="vegeButton" destination="ISt-hX-lUc" id="AT1-Q7-OYr"/>

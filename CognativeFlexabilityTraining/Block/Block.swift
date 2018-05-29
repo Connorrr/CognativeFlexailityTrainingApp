@@ -64,7 +64,7 @@ class Block {
                 
             if isevenOdd {
                 trial.question = "Is this number Even or Odd?"
-                trial.isAboveBelow = false
+                trial.isVegeFruit = false
                 if isevenOdd.randomBool() {
                     let data = img.getRedStimulus()
                     trial.condition = .red
@@ -78,7 +78,7 @@ class Block {
                 }
             }else{
                 trial.question = "Is this number Above or Below 5?"
-                trial.isAboveBelow = true
+                trial.isVegeFruit = true
                 if isevenOdd.randomBool() {
                     let data = img.getVegeStimulus()
                     trial.condition = .vege

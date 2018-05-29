@@ -52,7 +52,7 @@ class LogFileMaker {
             }
 
         }
-        removeUserData()
+        
         return true
     }
     
@@ -66,8 +66,8 @@ class LogFileMaker {
         return csvString
     }
     
-    func removeUserData () {
+    static func removeUserData () {
         UserDefaults.standard.removeObject(forKey: "BlockData")
-        print("remvoed trial data")
+        print("removed trial data")
     }
 }

@@ -27,6 +27,7 @@ class LoginViewController: UIViewController {
     }
     
     func beginTrials(){
+        LogFileMaker.removeUserData()
         let id = idField.text!
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async{
             if (id == ""){     //  id field empty

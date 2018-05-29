@@ -14,5 +14,5 @@ struct TrialInfo {
     var correctResponse : TrialCondition?
     var stim : UIImage?
     var stimName : String?
-    var isAboveBelow : Bool?
+    var isVegeFruit : Bool?
 }
