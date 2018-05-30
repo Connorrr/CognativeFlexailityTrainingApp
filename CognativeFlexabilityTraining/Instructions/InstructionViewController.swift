@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     var fileName : String?
     
     var testTimer : Timer?
-    var isTest : Bool = true    //  Will automatically run through if true TODO:  Make sure this is false at handover
+    var isTest : Bool = false    //  Will automatically run through if true TODO:  Make sure this is false at handover
 
     @IBOutlet weak var instructionsTextView: InstructionsTextView!
     

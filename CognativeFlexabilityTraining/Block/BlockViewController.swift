@@ -98,11 +98,7 @@ class BlockViewController: UIViewController {
     
     //  Called after the response button is pressed
     func forceProgress () {
-        if blockType! == .practice {
-            responseTimer!.fire()
-        } else {
-            blankTimer!.fire()
-        }
+        responseTimer!.fire()
     }
     
     var trialTimer : Timer?
@@ -257,16 +253,6 @@ class BlockViewController: UIViewController {
         case .fruit:
             trialData.trialCondition = "fruit"
         }
-    }
-    
-    func showCross(){
-        feedbackLabel.isHidden = false
-        
-        let crossTimer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: {(crossTimer) in self.removeCross()})
-    }
-    
-    func removeCross(){
-        feedbackLabel.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
