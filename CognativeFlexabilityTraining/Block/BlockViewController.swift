@@ -43,6 +43,10 @@ class BlockViewController: UIViewController {
         print("The block type is:  ")
         dump(blockType)
         
+        if StaticVars.id == "JasmineTest" {
+            playEasterEgg()
+        }
+        
         let random = false
         if blockType != nil {
             if blockType == .mixed {
@@ -109,6 +113,9 @@ class BlockViewController: UIViewController {
     func executeBlock() {
 
         self.stimImage.image = block?.trials![trialIndex].stim!
+        if StaticVars.id == "JasmineTest" {
+            self.stimImage.image = #imageLiteral(resourceName: "jasmine.jpg")
+        }
         
         setUpTrialData()
         
@@ -252,6 +259,32 @@ class BlockViewController: UIViewController {
             trialData.trialCondition = "vege"
         case .fruit:
             trialData.trialCondition = "fruit"
+        }
+    }
+    
+    func playEasterEgg () {
+        guard let url = Bundle.main.url(forResource: "AWholeNewWorld", withExtension: "mp3") else {
+            print("Couldn't find the file :(")
+            return
+        }
+        
+        do {
+            print("Found It :)")
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            
+            
+            /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
+            audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            /* iOS 10 and earlier require the following line:
+             player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileTypeMPEGLayer3) */
+            
+            audioPlayer.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
     

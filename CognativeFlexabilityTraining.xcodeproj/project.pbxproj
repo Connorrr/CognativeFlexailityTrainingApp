@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		BF056EDC209AACCD000F65D6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF056EDB209AACCD000F65D6 /* LoginViewController.swift */; };
 		BF056EE0209ADF03000F65D6 /* StaticVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF056EDF209ADF03000F65D6 /* StaticVars.swift */; };
+		BF1E38F920BF87F8001D851F /* AWholeNewWorld.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BF1E38F720BF87F8001D851F /* AWholeNewWorld.mp3 */; };
+		BF1E38FA20BF87F8001D851F /* jasmine.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF1E38F820BF87F8001D851F /* jasmine.jpg */; };
 		BF5165F820B539D700112630 /* rf3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF5165E420B539D700112630 /* rf3.jpg */; };
 		BF5165F920B539D700112630 /* rf2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF5165E520B539D700112630 /* rf2.jpg */; };
 		BF5165FA20B539D700112630 /* rf1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF5165E620B539D700112630 /* rf1.jpg */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		BF056EDB209AACCD000F65D6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF056EDF209ADF03000F65D6 /* StaticVars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticVars.swift; sourceTree = "<group>"; };
+		BF1E38F720BF87F8001D851F /* AWholeNewWorld.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = AWholeNewWorld.mp3; path = CognativeFlexabilityTraining/EasterEgg/AWholeNewWorld.mp3; sourceTree = SOURCE_ROOT; };
+		BF1E38F820BF87F8001D851F /* jasmine.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = jasmine.jpg; path = CognativeFlexabilityTraining/EasterEgg/jasmine.jpg; sourceTree = SOURCE_ROOT; };
 		BF5165E420B539D700112630 /* rf3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rf3.jpg; sourceTree = "<group>"; };
 		BF5165E520B539D700112630 /* rf2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rf2.jpg; sourceTree = "<group>"; };
 		BF5165E620B539D700112630 /* rf1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rf1.jpg; sourceTree = "<group>"; };
@@ -151,6 +155,16 @@
 				BF056EDF209ADF03000F65D6 /* StaticVars.swift */,
 			);
 			path = Globals;
+			sourceTree = "<group>";
+		};
+		BF1E38F620BF874E001D851F /* EasterEgg */ = {
+			isa = PBXGroup;
+			children = (
+				BF1E38F720BF87F8001D851F /* AWholeNewWorld.mp3 */,
+				BF1E38F820BF87F8001D851F /* jasmine.jpg */,
+			);
+			name = EasterEgg;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		BF5165BB20B52D6400112630 /* ColouredStim */ = {
@@ -308,6 +322,7 @@
 		BF884DFB205A2044002262DB /* CognativeFlexabilityTraining */ = {
 			isa = PBXGroup;
 			children = (
+				BF1E38F620BF874E001D851F /* EasterEgg */,
 				BF80566F20A2660000CC4446 /* Sounds */,
 				BF056EDE209ADEED000F65D6 /* Globals */,
 				BF056EDD209AACD6000F65D6 /* Login */,
@@ -458,8 +473,10 @@
 				BF51660320B539D700112630 /* gf1.jpg in Resources */,
 				BF713219205B7A02003D89D1 /* 4.png in Resources */,
 				BF5165FD20B539D700112630 /* rv2.jpg in Resources */,
+				BF1E38FA20BF87F8001D851F /* jasmine.jpg in Resources */,
 				BF51660C20B6503400112630 /* GreenButton.png in Resources */,
 				BF5165F820B539D700112630 /* rf3.jpg in Resources */,
+				BF1E38F920BF87F8001D851F /* AWholeNewWorld.mp3 in Resources */,
 				BF884E02205A2044002262DB /* Main.storyboard in Resources */,
 				BF51660720B539D700112630 /* gv4.jpg in Resources */,
 				BF713218205B7A02003D89D1 /* 3.png in Resources */,
