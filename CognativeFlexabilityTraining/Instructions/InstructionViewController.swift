@@ -11,7 +11,7 @@ import AVFoundation
 
 class ViewController: UIViewController, UITextViewDelegate {
     
-    let experimentStructure : [BlockType] = [.practice,.practice,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
+    let experimentStructure : [BlockType] = [.practice,.single,.single,.mixed,.mixed,.single,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed,.single,.mixed,.mixed]
     
     var blockProgress : Int = 0
     var instructionsState : InstructionsTextState?
@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITextViewDelegate {
     var fileName : String?
     
     var testTimer : Timer?
-    var isTest : Bool = false    //  Will automatically run through if true TODO:  Make sure this is false at handover
+    var isTest : Bool = false    //  Will automatically run through if true
 
     @IBOutlet weak var instructionsTextView: InstructionsTextView!
     
@@ -47,10 +47,10 @@ class ViewController: UIViewController, UITextViewDelegate {
             setText("PracticeEnd")
             setTestTimer(isFinished: false)
         case .goodbyeText:
-            setText("Goodbye")
             if !logFileMaker!.saveData() {
                 print("Error:  Unable to save the log file data")
             }
+            setGoodbyeText()
             setTestTimer(isFinished: true)
         }
     }
@@ -104,6 +104,11 @@ class ViewController: UIViewController, UITextViewDelegate {
                 blockViewController.blockProgress = blockProgress
             }
         }
+    }
+    
+    // The Goodbye text takes gives feedback for percentage correct so it needs a different method to the setText func
+    func setGoodbyeText() {
+        instructionsTextView.text = "Great job! Thank you for completing this session!\n\n You got \(Int(logFileMaker!.perCorr))% Correct"
     }
     
     // Returns true if succeeded

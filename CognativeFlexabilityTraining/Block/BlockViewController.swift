@@ -55,6 +55,12 @@ class BlockViewController: UIViewController {
                 } else {
                     block = Block(startingTrialCondition: .vege, numerOfSwitches: 4)
                 }
+            }else if blockType == .practice {
+                if random.randomBool() {
+                    block = Block(numberOfPracticeTrials: 12, startingTrialCondition: .red, isMixed: true, numerOfSwitches: 2)
+                } else {
+                    block = Block(numberOfPracticeTrials: 12, startingTrialCondition: .vege, isMixed: true, numerOfSwitches: 2)
+                }
             }else{
                 if random.randomBool() {
                     block = Block(trialCondition: .red)
@@ -273,8 +279,6 @@ class BlockViewController: UIViewController {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
             try AVAudioSession.sharedInstance().setActive(true)
             
-            
-            
             /* The following line is required for the player to work on iOS 11. Change the file type accordingly*/
             audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
             
@@ -292,7 +296,7 @@ class BlockViewController: UIViewController {
         if segue.identifier == "returnToInstructions" {
             print("preparing for segue")
             if let viewController = segue.destination as? ViewController {
-                if blockProgress! == 1 {
+                if blockProgress! == 0 {
                     print("You are at the end of the practices")
                     viewController.instructionsState = .practiceEnd
                 } else if blockProgress! + 1 < viewController.experimentStructure.count {

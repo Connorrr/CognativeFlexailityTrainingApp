@@ -9,8 +9,9 @@
 import Foundation
 
 class LogFileMaker {
-    var fName: String
+    var fName : String
     var logData : [TrialData]?
+    var perCorr = 0.0
     
     init(fileName: String) {
         fName = fileName
@@ -57,10 +58,19 @@ class LogFileMaker {
     }
     
     private func convertLogFileDataToCSVString() -> String {
+        var numCorr = 0.0
+        var numTrials = 0.0
         var csvString = "Block No, Trial No, Block Type, Trial Condition, Stim, Response, Rt, Correct, Time Elapsed\n"
         
         for trialData in logData! {
             csvString.append("\(String(describing: trialData.blockNumber)),\(String(describing: trialData.trialNum)),\(String(describing: trialData.blockType)),\(String(describing: trialData.trialCondition)),\(String(describing: trialData.stim)),\(String(describing: trialData.response)),\(String(describing: trialData.rt)),\(String(describing: trialData.corr)),\(String(describing: trialData.time))\n")
+            if trialData.trialCondition != "Practice" {
+                numTrials = numTrials + 1
+                if trialData.corr == 1 {
+                    numCorr = numCorr + 1
+                }
+            }
+            perCorr = (100/numTrials)*numCorr
         }
         
         return csvString

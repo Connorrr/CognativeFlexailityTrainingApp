@@ -12,7 +12,7 @@ import UIKit
 class Block {
     
     let blockType : BlockType
-    let numberOfTrials : Int = 17
+    let numberOfTrials : Int?
     let startTrialCondition : TrialCondition
     let numSwitches : Int?
     var trials : [TrialInfo]? = []
@@ -23,6 +23,7 @@ class Block {
     ///
     /// - Parameter trialCondition: This is the trial condition that will define wheather it is even/odd or above/below (note: the specific condition will be ignored)
     init(trialCondition: TrialCondition) {
+        numberOfTrials = 17
         blockType = .single
         startTrialCondition = trialCondition
         numSwitches = nil
@@ -35,11 +36,39 @@ class Block {
     ///   - startingTrialCondition: This is the trial condition that will define wheather we start with even/odd or above/below (note: the specific condition will be ignored)
     ///   - numerOfSwitches: number of switches in throughout the trial list
     init(startingTrialCondition: TrialCondition, numerOfSwitches: Int) {
+        numberOfTrials = 17
         blockType = .mixed
         startTrialCondition = startingTrialCondition
         numSwitches = numerOfSwitches
         buildTrialList()
     }
+    
+    
+    /// Initializer used for the updated practice trials
+    ///
+    /// - Parameters:
+    ///   - numberOfPracticeTrials: The numer of practice trials to be built in this block
+    ///   - startingTrialCondition: This is the trial condition that will define wheather we start with even/odd or above/below (note: the specific condition will be ignored) however if this is a single blocktype then this value will describe the condition for the whole block
+    ///   - isMixed: is this a mixed trial condition
+    ///   - numerOfSwitches: if it is mixed how many switches will there be in the block
+    init(numberOfPracticeTrials: Int, startingTrialCondition: TrialCondition, isMixed: Bool, numerOfSwitches: Int?) {
+        numberOfTrials = numberOfPracticeTrials
+        if isMixed {
+            blockType = .mixed
+            startTrialCondition = startingTrialCondition
+            numSwitches = numerOfSwitches!
+            if numerOfSwitches == nil {
+                print("numerOfSwitches must be set for mixed practice block")
+                return
+            }
+        } else {
+            blockType = .single
+            startTrialCondition = startingTrialCondition
+            numSwitches = nil
+        }
+        buildTrialList()
+    }
+
     
     private func buildTrialList() {
         
@@ -51,10 +80,10 @@ class Block {
             isevenOdd = false
         }
 
-        for i in 1 ... numberOfTrials {
+        for i in 1 ... numberOfTrials! {
                 
             if blockType == .mixed {
-                let switchEvery = numberOfTrials/numSwitches!
+                let switchEvery = numberOfTrials!/numSwitches!
                     
                 if ( i % switchEvery == 0 ) {
                     isevenOdd = !isevenOdd
@@ -63,7 +92,6 @@ class Block {
             }
                 
             if isevenOdd {
-                trial.question = "Is this number Even or Odd?"
                 trial.isVegeFruit = false
                 if isevenOdd.randomBool() {
                     let data = img.getRedStimulus()
@@ -77,7 +105,6 @@ class Block {
                     trial.stimName = data.1?.description
                 }
             }else{
-                trial.question = "Is this number Above or Below 5?"
                 trial.isVegeFruit = true
                 if isevenOdd.randomBool() {
                     let data = img.getVegeStimulus()
